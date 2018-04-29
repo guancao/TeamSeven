@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [CNBC Automation Script]">
+  <parameter name="chromedriverpath" value="E:\\PIIT\\selenium-weekend\\classprojects\\WebAutomationTeamSeven\\Generic\\driver\\chromedriver.exe"/>
+  <parameter name="useCloudEnv" value="false"/>
+  <parameter name="os" value="Windows"/>
+  <parameter name="browserName" value="chrome"/>
+  <parameter name="url" value="https://www.cnbc.com/"/>
+  <test thread-count="5" name="CNBC Home(failed)">
+    <classes>
+      <class name="homepagetest.TestSearch">
+        <methods>
+          <include name="testSeartch"/>
+          <include name="afterEachTestMethod"/>
+          <include name="generateReport"/>
+          <include name="extentSetup"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="startExtent"/>
+        </methods>
+      </class> <!-- homepagetest.TestSearch -->
+    </classes>
+  </test> <!-- CNBC Home(failed) -->
+</suite> <!-- Failed suite [CNBC Automation Script] -->

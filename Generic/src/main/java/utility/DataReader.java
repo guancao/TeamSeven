@@ -5,6 +5,7 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
 import java.io.File;
@@ -15,7 +16,8 @@ import java.io.IOException;
 public class DataReader {
     HSSFWorkbook wb = null;
     HSSFSheet sheet = null;
-    Table.Cell cell = null;
+    //    Table.Cell cell = null;
+    Cell cell;  //changed from above line, may cause problem  -- Guan
     FileOutputStream fio = null;
     int numberOfRows, numberOfCol, rowNum;
 

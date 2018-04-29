@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="2" total="5" passed="3">
   <reporter-output>
+    <line>
+      <![CDATA[Extent Report DirectoryE:\WebAutomationTeamSeven\CNBC\test-output\html]]>
+    </line>
   </reporter-output>
-  <suite name="CNBC Automation Script" duration-ms="71758" started-at="2018-04-28T23:12:20Z" finished-at="2018-04-28T23:13:31Z">
+  <suite name="CNBC Automation Script" duration-ms="43614" started-at="2018-04-29T02:16:18Z" finished-at="2018-04-29T02:17:02Z">
     <groups>
     </groups>
-    <test name="CNBC Home" duration-ms="71758" started-at="2018-04-28T23:12:20Z" finished-at="2018-04-28T23:13:31Z">
+    <test name="CNBC Home" duration-ms="43614" started-at="2018-04-29T02:16:18Z" finished-at="2018-04-29T02:17:02Z">
       <class name="homepagetest.TestMenu">
-        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:homepagetest.TestMenu@4f970963]" name="setUp" is-config="true" duration-ms="6929" started-at="2018-04-28T23:13:18Z" finished-at="2018-04-28T23:13:25Z">
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:homepagetest.TestMenu@610694f1]" name="setUp" is-config="true" duration-ms="8641" started-at="2018-04-29T02:16:49Z" finished-at="2018-04-29T02:16:57Z">
           <params>
             <param index="0">
               <value>
@@ -48,17 +51,53 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testMenu()[pri:0, instance:homepagetest.TestMenu@4f970963]" name="testMenu" duration-ms="305" started-at="2018-04-28T23:13:25Z" finished-at="2018-04-28T23:13:25Z">
+        <test-method status="PASS" signature="testMenu()[pri:0, instance:homepagetest.TestMenu@610694f1]" name="testMenu" duration-ms="579" started-at="2018-04-29T02:16:57Z" finished-at="2018-04-29T02:16:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMenu -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:homepagetest.TestMenu@4f970963]" name="afterMethod" is-config="true" duration-ms="6104" started-at="2018-04-28T23:13:25Z" finished-at="2018-04-28T23:13:31Z">
+        <test-method status="PASS" signature="startExtent(java.lang.reflect.Method)[pri:0, instance:homepagetest.TestMenu@610694f1]" name="startExtent" is-config="true" duration-ms="0" started-at="2018-04-29T02:16:57Z" finished-at="2018-04-29T02:16:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void homepagetest.TestMenu.testMenu() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startExtent -->
+        <test-method status="PASS" signature="afterEachTestMethod(org.testng.ITestResult)[pri:0, instance:homepagetest.TestMenu@610694f1]" name="afterEachTestMethod" is-config="true" duration-ms="783" started-at="2018-04-29T02:16:58Z" finished-at="2018-04-29T02:16:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testMenu status=SUCCESS method=TestMenu.testMenu()[pri:0, instance:homepagetest.TestMenu@610694f1] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachTestMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:homepagetest.TestMenu@610694f1]" name="afterMethod" is-config="true" duration-ms="3000" started-at="2018-04-29T02:16:59Z" finished-at="2018-04-29T02:17:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
       </class> <!-- homepagetest.TestMenu -->
       <class name="homepagetest.TestSearch">
-        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:homepagetest.TestSearch@65e2dbf3]" name="setUp" is-config="true" duration-ms="7868" started-at="2018-04-28T23:12:20Z" finished-at="2018-04-28T23:12:27Z">
+        <test-method status="PASS" signature="extentSetup(org.testng.ITestContext)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="extentSetup" is-config="true" duration-ms="228" started-at="2018-04-29T02:16:18Z" finished-at="2018-04-29T02:16:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@12ed9db6]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Extent Report DirectoryE:\WebAutomationTeamSeven\CNBC\test-output\html]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- extentSetup -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="setUp" is-config="true" duration-ms="7178" started-at="2018-04-29T02:16:18Z" finished-at="2018-04-29T02:16:25Z">
           <params>
             <param index="0">
               <value>
@@ -99,15 +138,37 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="search()[pri:0, instance:homepagetest.TestSearch@65e2dbf3]" name="search" duration-ms="3156" started-at="2018-04-28T23:12:27Z" finished-at="2018-04-28T23:12:31Z">
+        <test-method status="PASS" signature="startExtent(java.lang.reflect.Method)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="startExtent" is-config="true" duration-ms="6" started-at="2018-04-29T02:16:25Z" finished-at="2018-04-29T02:16:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void homepagetest.TestSearch.search()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startExtent -->
+        <test-method status="PASS" signature="search()[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="search" duration-ms="2818" started-at="2018-04-29T02:16:25Z" finished-at="2018-04-29T02:16:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- search -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:homepagetest.TestSearch@65e2dbf3]" name="afterMethod" is-config="true" duration-ms="6065" started-at="2018-04-28T23:12:31Z" finished-at="2018-04-28T23:12:37Z">
+        <test-method status="PASS" signature="afterEachTestMethod(org.testng.ITestResult)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="afterEachTestMethod" is-config="true" duration-ms="996" started-at="2018-04-29T02:16:28Z" finished-at="2018-04-29T02:16:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=search status=SUCCESS method=TestSearch.search()[pri:0, instance:homepagetest.TestSearch@5ae63ade] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachTestMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="afterMethod" is-config="true" duration-ms="3001" started-at="2018-04-29T02:16:29Z" finished-at="2018-04-29T02:16:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:homepagetest.TestSearch@65e2dbf3]" name="setUp" is-config="true" duration-ms="6584" started-at="2018-04-28T23:12:37Z" finished-at="2018-04-28T23:12:43Z">
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="setUp" is-config="true" duration-ms="6659" started-at="2018-04-29T02:16:32Z" finished-at="2018-04-29T02:16:39Z">
           <params>
             <param index="0">
               <value>
@@ -148,14 +209,40 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testSeartch()[pri:0, instance:homepagetest.TestSearch@65e2dbf3]" name="testSeartch" duration-ms="28449" started-at="2018-04-28T23:12:43Z" finished-at="2018-04-28T23:13:12Z">
+        <test-method status="PASS" signature="startExtent(java.lang.reflect.Method)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="startExtent" is-config="true" duration-ms="0" started-at="2018-04-29T02:16:39Z" finished-at="2018-04-29T02:16:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void homepagetest.TestSearch.testSeartch()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startExtent -->
+        <test-method status="PASS" signature="testSeartch()[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="testSeartch" duration-ms="6035" started-at="2018-04-29T02:16:39Z" finished-at="2018-04-29T02:16:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSeartch -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:homepagetest.TestSearch@65e2dbf3]" name="afterMethod" is-config="true" duration-ms="6275" started-at="2018-04-28T23:13:12Z" finished-at="2018-04-28T23:13:18Z">
+        <test-method status="PASS" signature="afterEachTestMethod(org.testng.ITestResult)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="afterEachTestMethod" is-config="true" duration-ms="868" started-at="2018-04-29T02:16:45Z" finished-at="2018-04-29T02:16:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testSeartch status=SUCCESS method=TestSearch.testSeartch()[pri:0, instance:homepagetest.TestSearch@5ae63ade] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachTestMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="afterMethod" is-config="true" duration-ms="3000" started-at="2018-04-29T02:16:46Z" finished-at="2018-04-29T02:16:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="generateReport()[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="generateReport" is-config="true" duration-ms="45" started-at="2018-04-29T02:17:02Z" finished-at="2018-04-29T02:17:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateReport -->
       </class> <!-- homepagetest.TestSearch -->
     </test> <!-- CNBC Home -->
   </suite> <!-- CNBC Automation Script -->
