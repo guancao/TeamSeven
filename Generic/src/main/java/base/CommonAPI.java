@@ -92,9 +92,9 @@ public class CommonAPI {
     @AfterMethod
     public void afterMethod() throws InterruptedException {
         Thread.sleep(3000);
-        driver.manage().deleteAllCookies();
-        driver.close();
-        //driver.quit();
+//        driver.manage().deleteAllCookies();
+//        driver.close();
+        driver.quit();
     }
 
     public void clickOnCss(String locator) {
