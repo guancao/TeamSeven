@@ -477,7 +477,6 @@ public class CommonAPI {
         return textList;
 
     }
-
     //Guan add 4/25/2018
     @Parameters({"filepath"})
     public static WebElement findElemByXpath(WebDriver driver, String key, String filepath) throws IOException {

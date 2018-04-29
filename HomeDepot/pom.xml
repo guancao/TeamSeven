@@ -11,5 +11,12 @@
 
     <artifactId>HomeDepot</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>WebAutomationTeamSeven</groupId>
+            <artifactId>generic</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
