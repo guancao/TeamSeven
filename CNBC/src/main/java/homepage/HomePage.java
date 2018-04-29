@@ -16,7 +16,7 @@ import java.util.List;
 public class HomePage extends CommonAPI {
 
     @FindBy(how=How.ID, using="nav")
-    List<WebElement> menuItemList;
+    public List<WebElement> menuItemList;
 
     //retrieve the menu item information, return a list -- method #1
     public List<String> retrieveMenuTitle(WebDriver driver) throws IOException {
