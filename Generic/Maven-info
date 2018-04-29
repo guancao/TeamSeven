@@ -1,0 +1,28 @@
+04-15-18 class notes:
+
+Maven
+
+Manages dependencies
+Build tool
+
+http://maven.apache.org/download.cgi
+
+Windows:
+path= c:/Program files/Maven/maven-3.2/bin
+M2_Home= c:/Program files/Maven/maven-3.2
+
+Mac OS:
+Brew install maven
+
+mvn -version
+
+Central Repo:
+https://search.maven.org/
+
+Maven POM:
+https://maven.apache.org/guides/introduction/introduction-to-the-pom.html
+
+CSS Selector:
+
+#id
+.className
