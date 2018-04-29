@@ -111,16 +111,28 @@ public class CommonAPI {
     public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName, String filepath) throws IOException {
         if(browserName.equalsIgnoreCase("chrome")){
             if(OS.equalsIgnoreCase("OS X")){
+<<<<<<< HEAD
                 System.setProperty("webdriver.chrome.driver", readProperties("oxchromedriverpath", filepath));
             }else if(OS.equalsIgnoreCase("Windows")){
                 System.setProperty("webdriver.chrome.driver", readProperties("winchromedriverpath", filepath));
+=======
+                System.setProperty("webdriver.chrome.driver", "/Users/bravo1516/Web-Automation-Framework/TeamSeven/Generic/driver/chromedriver");
+            }else if(OS.equalsIgnoreCase("Windows")){
+                System.setProperty("webdriver.chrome.driver", "/Users/bravo1516/Web-Automation-Framework/TeamSeven/Generic/driver/chromedriver");
+>>>>>>> 0469286192e78f6cca008774e98d6c264cc1b287
             }
             driver = new ChromeDriver();
         }else if(browserName.equalsIgnoreCase("firefox")){
             if(OS.equalsIgnoreCase("OS X")){
+<<<<<<< HEAD
                 System.setProperty("webdriver.gecko.driver", readProperties("oxfirefoxdriverpath", filepath));
             }else if(OS.equalsIgnoreCase("Windows")) {
                 System.setProperty("webdriver.gecko.driver", readProperties("winchromedriverpath", filepath));
+=======
+                System.setProperty("webdriver.gecko.driver", "/Users/bravo1516/Web-Automation-Framework/TeamSeven/Generic/driver/geckodriver");
+            }else if(OS.equalsIgnoreCase("Windows")) {
+                System.setProperty("webdriver.gecko.driver", "/Users/bravo1516/Web-Automation-Framework/TeamSeven/Generic/driver/geckodriver");
+>>>>>>> 0469286192e78f6cca008774e98d6c264cc1b287
             }
             driver = new FirefoxDriver();
 
@@ -371,6 +383,10 @@ public class CommonAPI {
     public void cancelAlert() {
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
+    }
+    public void selectType(String locator, String value) {
+        org.openqa.selenium.support.ui.Select select = new org.openqa.selenium.support.ui.Select(driver.findElement(By.id(locator)));
+        select.selectByVisibleText(value);
     }
 
     //iFrame Handle
