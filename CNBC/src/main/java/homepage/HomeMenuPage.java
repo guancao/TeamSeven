@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.testng.annotations.Parameters;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,9 +23,10 @@ public class HomeMenuPage extends CommonAPI {
         return menu;
     }
     //retrieve the menu item information, return a list  -- method #2
-    public List<String> retrieveMenuTitle2(WebDriver driver) throws IOException {
+    @Parameters({"filepath"})
+    public List<String> retrieveMenuTitle2(WebDriver driver, String filepath) throws IOException {
         List<String> menu = new ArrayList<String>();
-        menu = findElemsStringListByXpath(driver, readProperties("menuxpath"));
+        menu = findElemsStringListByXpath(driver, readProperties("menuxpath",filepath), filepath);
         return menu;
     }
 

@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,11 +103,6 @@
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-CNBC_Automation_Script" title="homepagetest.TestSearch" hash-for-method="search">search</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-CNBC_Automation_Script" title="homepagetest.TestMenu" hash-for-method="testMenu">testMenu</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -127,21 +122,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-CNBC_Automation_Script" class="panel CNBC_Automation_Script">
-          <div class="suite-CNBC_Automation_Script-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">homepagetest.TestMenu</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="testMenu">
-                  </a> <!-- testMenu -->
-                  <span class="method-name">testMenu</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-CNBC_Automation_Script-class-passed -->
           <div class="suite-CNBC_Automation_Script-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -174,15 +154,19 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;CNBC Automation Script&quot;&gt;
-  &lt;parameter name=&quot;chromedriverpath&quot; value=&quot;E:\\PIIT\\selenium-weekend\\classprojects\\WebAutomationTeamSeven\\Generic\\driver\\chromedriver.exe&quot;/&gt;
+  &lt;parameter name=&quot;winfirefoxdriverpath&quot; value=&quot;E:\WebAutomationTeamSeven\Generic\driver\geckodriver.exe&quot;/&gt;
   &lt;parameter name=&quot;useCloudEnv&quot; value=&quot;false&quot;/&gt;
   &lt;parameter name=&quot;os&quot; value=&quot;Windows&quot;/&gt;
+  &lt;parameter name=&quot;filepath&quot; value=&quot;E:\WebAutomationTeamSeven\CNBC\src\test\resources\locator.properties&quot;/&gt;
+  &lt;parameter name=&quot;oxchromedriverpath&quot; value=&quot;&quot;/&gt;
   &lt;parameter name=&quot;browserName&quot; value=&quot;chrome&quot;/&gt;
+  &lt;parameter name=&quot;iedriverpath&quot; value=&quot;E:\WebAutomationTeamSeven\Generic\driver\IEDriverServer.exe&quot;/&gt;
   &lt;parameter name=&quot;url&quot; value=&quot;https://www.cnbc.com/&quot;/&gt;
+  &lt;parameter name=&quot;winchromedriverpath&quot; value=&quot;E:\WebAutomationTeamSeven\Generic\driver\chromedriver.exe&quot;/&gt;
+  &lt;parameter name=&quot;oxfirefoxdriverpath&quot; value=&quot;&quot;/&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;CNBC Home&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;homepagetest.TestSearch&quot;/&gt;
-      &lt;class name=&quot;homepagetest.TestMenu&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- CNBC Home --&gt;
 &lt;/suite&gt; &lt;!-- CNBC Automation Script --&gt;
@@ -196,7 +180,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">CNBC Home (2 classes)</span>
+                <span class="test-name">CNBC Home (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -222,24 +206,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testSeartch')
 data.setCell(0, 2, 'homepagetest.TestSearch')
-data.setCell(0, 3, 6035);
+data.setCell(0, 3, 7919);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'search')
 data.setCell(1, 2, 'homepagetest.TestSearch')
-data.setCell(1, 3, 2818);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testMenu')
-data.setCell(2, 2, 'homepagetest.TestMenu')
-data.setCell(2, 3, 579);
+data.setCell(1, 3, 327);
 window.suiteTableData['CNBC_Automation_Script']= { tableData: data, tableDiv: 'times-div-CNBC_Automation_Script'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 9 seconds</span>
+              <span class="suite-total-time">Total running time: 8 seconds</span>
               <div id="times-div-CNBC_Automation_Script">
               </div> <!-- times-div-CNBC_Automation_Script -->
             </div> <!-- times-div -->
@@ -254,18 +234,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-CNBC_Automation_Script" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">2 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">homepagetest.TestMenu</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">generateReport</span>
-                <br/>
-                <span class="ignored-method-name">extentSetup</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-CNBC_Automation_Script" class="panel">
@@ -276,78 +247,52 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">homepagetest.TestSearch</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">extentSetup(org.testng.TestRunner@12ed9db6)</span>
+                <span class="method-name">extentSetup(org.testng.TestRunner@22d7b4f8)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
-                <span class="method-name">setUp(false, false, Windows, 10, chrome, 34, https://www.cnbc.com/)</span>
-                <span class="method-start">273 ms</span>
+                <span class="method-name">setUp(false, false, Windows, 10, chrome, 34, https://www.cnbc.com/, E:\WebAutomationTeamSeven\CNBC\src\tes...)</span>
+                <span class="method-start">208 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">startExtent(public void homepagetest.TestSearch.search())</span>
-                <span class="method-start">7451 ms</span>
+                <span class="method-start">9140 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">search</span>
-                <span class="method-start">7458 ms</span>
+                <span class="method-start">9146 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachTestMethod([TestResult name=search status=SUCCESS method=TestSearch.search()[pri:0, instance:homepagetest.TestS...)</span>
-                <span class="method-start">10276 ms</span>
+                <span class="method-start">9474 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">11272 ms</span>
+                <span class="method-start">10437 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">setUp(false, false, Windows, 10, chrome, 34, https://www.cnbc.com/)</span>
-                <span class="method-start">14274 ms</span>
+                <span class="method-name">setUp(false, false, Windows, 10, chrome, 34, https://www.cnbc.com/, E:\WebAutomationTeamSeven\CNBC\src\tes...)</span>
+                <span class="method-start">13438 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">startExtent(public void homepagetest.TestSearch.testSeartch())</span>
-                <span class="method-start">20934 ms</span>
+                <span class="method-start">19759 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testSeartch</span>
-                <span class="method-start">20934 ms</span>
+                <span class="method-start">19759 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachTestMethod([TestResult name=testSeartch status=SUCCESS method=TestSearch.testSeartch()[pri:0, instance:homepage...)</span>
-                <span class="method-start">26969 ms</span>
+                <span class="method-start">27678 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">27837 ms</span>
+                <span class="method-start">28488 ms</span>
               </div> <!-- configuration-method after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">homepagetest.TestMenu</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp(false, false, Windows, 10, chrome, 34, https://www.cnbc.com/)</span>
-                <span class="method-start">30839 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">startExtent(public void homepagetest.TestMenu.testMenu() throws java.io.IOException)</span>
-                <span class="method-start">39480 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">testMenu</span>
-                <span class="method-start">39480 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterEachTestMethod([TestResult name=testMenu status=SUCCESS method=TestMenu.testMenu()[pri:0, instance:homepagetest.Tes...)</span>
-                <span class="method-start">40059 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method after">
-                <span class="method-name">afterMethod</span>
-                <span class="method-start">40842 ms</span>
-              </div> <!-- configuration-method after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">homepagetest.TestSearch</div> <!-- chronological-class-name -->
               <div class="configuration-suite after">
                 <span class="method-name">generateReport</span>
-                <span class="method-start">43899 ms</span>
+                <span class="method-start">31546 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

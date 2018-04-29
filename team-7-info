@@ -14,7 +14,7 @@ Selina. Retail.          70%-Moyna-10%, Aftab-10%, Kaniz-10%
 Kaniz.  Social Media 70%-Aftab-10%, Selina-10%, Moyna-10%
 Financial & Health Care—All of you
 
-4/28/2018  upate the CommonAPI on setUp()
+4/28/2018  update the CommonAPI on setUp()
 **** you have the choice to use local or cloud driver
 **** you have choice to use chrome or firefox
 **** make sure you set up your runner accordingly
@@ -22,3 +22,16 @@ Financial & Health Care—All of you
     <parameter name="useCloudEnv" value="false"/>
     <parameter name="os" value="Windows"/>
     <parameter name="browserName" value="chrome"/>
+
+4/29/2018  update the CommonAPI on setUp() and readProperties90
+=== leave CommonAPI intact for team members -- set up driver information individually as following ---
+
+*** set up the locator.properties file path as a parameter in the testrunner.xml, for example==
+     <parameter name="filepath" value="E:\WebAutomationTeamSeven\CNBC\src\test\resources\locator.properties"/>
+
+*** set up the driver path in locator.properties, for example ===
+    winchromedriverpath=E:\\WebAutomationTeamSeven\\Generic\\driver\\chromedriver.exe
+    oxchromedriverpath=
+    winfirefoxdriverpath=E:\\WebAutomationTeamSeven\\Generic\\driver\\geckodriver.exe
+    oxfirefoxdriverpath=
+    iedriverpath=E:\\WebAutomationTeamSeven\\Generic\\driver\\IEDriverServer.exe

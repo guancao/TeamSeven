@@ -1,93 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="2" total="5" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
     <line>
       <![CDATA[Extent Report DirectoryE:\WebAutomationTeamSeven\CNBC\test-output\html]]>
     </line>
   </reporter-output>
-  <suite name="CNBC Automation Script" duration-ms="43614" started-at="2018-04-29T02:16:18Z" finished-at="2018-04-29T02:17:02Z">
+  <suite name="CNBC Automation Script" duration-ms="31304" started-at="2018-04-29T05:15:25Z" finished-at="2018-04-29T05:15:56Z">
     <groups>
     </groups>
-    <test name="CNBC Home" duration-ms="43614" started-at="2018-04-29T02:16:18Z" finished-at="2018-04-29T02:17:02Z">
-      <class name="homepagetest.TestMenu">
-        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:homepagetest.TestMenu@610694f1]" name="setUp" is-config="true" duration-ms="8641" started-at="2018-04-29T02:16:49Z" finished-at="2018-04-29T02:16:57Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[false]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[false]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Windows]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[10]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[34]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[https://www.cnbc.com/]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testMenu()[pri:0, instance:homepagetest.TestMenu@610694f1]" name="testMenu" duration-ms="579" started-at="2018-04-29T02:16:57Z" finished-at="2018-04-29T02:16:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testMenu -->
-        <test-method status="PASS" signature="startExtent(java.lang.reflect.Method)[pri:0, instance:homepagetest.TestMenu@610694f1]" name="startExtent" is-config="true" duration-ms="0" started-at="2018-04-29T02:16:57Z" finished-at="2018-04-29T02:16:57Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void homepagetest.TestMenu.testMenu() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startExtent -->
-        <test-method status="PASS" signature="afterEachTestMethod(org.testng.ITestResult)[pri:0, instance:homepagetest.TestMenu@610694f1]" name="afterEachTestMethod" is-config="true" duration-ms="783" started-at="2018-04-29T02:16:58Z" finished-at="2018-04-29T02:16:59Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=testMenu status=SUCCESS method=TestMenu.testMenu()[pri:0, instance:homepagetest.TestMenu@610694f1] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachTestMethod -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:homepagetest.TestMenu@610694f1]" name="afterMethod" is-config="true" duration-ms="3000" started-at="2018-04-29T02:16:59Z" finished-at="2018-04-29T02:17:02Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- homepagetest.TestMenu -->
+    <test name="CNBC Home" duration-ms="31304" started-at="2018-04-29T05:15:25Z" finished-at="2018-04-29T05:15:56Z">
       <class name="homepagetest.TestSearch">
-        <test-method status="PASS" signature="extentSetup(org.testng.ITestContext)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="extentSetup" is-config="true" duration-ms="228" started-at="2018-04-29T02:16:18Z" finished-at="2018-04-29T02:16:18Z">
+        <test-method status="PASS" signature="extentSetup(org.testng.ITestContext)[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="extentSetup" is-config="true" duration-ms="187" started-at="2018-04-29T05:15:24Z" finished-at="2018-04-29T05:15:25Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@12ed9db6]]>
+                <![CDATA[org.testng.TestRunner@22d7b4f8]]>
               </value>
             </param>
           </params>
@@ -97,7 +24,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- extentSetup -->
-        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="setUp" is-config="true" duration-ms="7178" started-at="2018-04-29T02:16:18Z" finished-at="2018-04-29T02:16:25Z">
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="setUp" is-config="true" duration-ms="8932" started-at="2018-04-29T05:15:25Z" finished-at="2018-04-29T05:15:33Z">
           <params>
             <param index="0">
               <value>
@@ -134,11 +61,16 @@
                 <![CDATA[https://www.cnbc.com/]]>
               </value>
             </param>
+            <param index="7">
+              <value>
+                <![CDATA[E:\WebAutomationTeamSeven\CNBC\src\test\resources\locator.properties]]>
+              </value>
+            </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="startExtent(java.lang.reflect.Method)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="startExtent" is-config="true" duration-ms="6" started-at="2018-04-29T02:16:25Z" finished-at="2018-04-29T02:16:25Z">
+        <test-method status="PASS" signature="startExtent(java.lang.reflect.Method)[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="startExtent" is-config="true" duration-ms="5" started-at="2018-04-29T05:15:33Z" finished-at="2018-04-29T05:15:33Z">
           <params>
             <param index="0">
               <value>
@@ -149,26 +81,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startExtent -->
-        <test-method status="PASS" signature="search()[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="search" duration-ms="2818" started-at="2018-04-29T02:16:25Z" finished-at="2018-04-29T02:16:28Z">
+        <test-method status="PASS" signature="search()[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="search" duration-ms="327" started-at="2018-04-29T05:15:33Z" finished-at="2018-04-29T05:15:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- search -->
-        <test-method status="PASS" signature="afterEachTestMethod(org.testng.ITestResult)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="afterEachTestMethod" is-config="true" duration-ms="996" started-at="2018-04-29T02:16:28Z" finished-at="2018-04-29T02:16:29Z">
+        <test-method status="PASS" signature="afterEachTestMethod(org.testng.ITestResult)[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="afterEachTestMethod" is-config="true" duration-ms="962" started-at="2018-04-29T05:15:34Z" finished-at="2018-04-29T05:15:35Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=search status=SUCCESS method=TestSearch.search()[pri:0, instance:homepagetest.TestSearch@5ae63ade] output={null}]]]>
+                <![CDATA[[TestResult name=search status=SUCCESS method=TestSearch.search()[pri:0, instance:homepagetest.TestSearch@3dd4520b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachTestMethod -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="afterMethod" is-config="true" duration-ms="3001" started-at="2018-04-29T02:16:29Z" finished-at="2018-04-29T02:16:32Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="afterMethod" is-config="true" duration-ms="3000" started-at="2018-04-29T05:15:35Z" finished-at="2018-04-29T05:15:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="setUp" is-config="true" duration-ms="6659" started-at="2018-04-29T02:16:32Z" finished-at="2018-04-29T02:16:39Z">
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="setUp" is-config="true" duration-ms="6321" started-at="2018-04-29T05:15:38Z" finished-at="2018-04-29T05:15:44Z">
           <params>
             <param index="0">
               <value>
@@ -205,11 +137,20 @@
                 <![CDATA[https://www.cnbc.com/]]>
               </value>
             </param>
+            <param index="7">
+              <value>
+                <![CDATA[E:\WebAutomationTeamSeven\CNBC\src\test\resources\locator.properties]]>
+              </value>
+            </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="startExtent(java.lang.reflect.Method)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="startExtent" is-config="true" duration-ms="0" started-at="2018-04-29T02:16:39Z" finished-at="2018-04-29T02:16:39Z">
+        <test-method status="PASS" signature="testSeartch()[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="testSeartch" duration-ms="7919" started-at="2018-04-29T05:15:44Z" finished-at="2018-04-29T05:15:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSeartch -->
+        <test-method status="PASS" signature="startExtent(java.lang.reflect.Method)[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="startExtent" is-config="true" duration-ms="0" started-at="2018-04-29T05:15:44Z" finished-at="2018-04-29T05:15:44Z">
           <params>
             <param index="0">
               <value>
@@ -220,26 +161,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startExtent -->
-        <test-method status="PASS" signature="testSeartch()[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="testSeartch" duration-ms="6035" started-at="2018-04-29T02:16:39Z" finished-at="2018-04-29T02:16:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testSeartch -->
-        <test-method status="PASS" signature="afterEachTestMethod(org.testng.ITestResult)[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="afterEachTestMethod" is-config="true" duration-ms="868" started-at="2018-04-29T02:16:45Z" finished-at="2018-04-29T02:16:46Z">
+        <test-method status="PASS" signature="afterEachTestMethod(org.testng.ITestResult)[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="afterEachTestMethod" is-config="true" duration-ms="810" started-at="2018-04-29T05:15:52Z" finished-at="2018-04-29T05:15:53Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testSeartch status=SUCCESS method=TestSearch.testSeartch()[pri:0, instance:homepagetest.TestSearch@5ae63ade] output={null}]]]>
+                <![CDATA[[TestResult name=testSeartch status=SUCCESS method=TestSearch.testSeartch()[pri:0, instance:homepagetest.TestSearch@3dd4520b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachTestMethod -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="afterMethod" is-config="true" duration-ms="3000" started-at="2018-04-29T02:16:46Z" finished-at="2018-04-29T02:16:49Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="afterMethod" is-config="true" duration-ms="3001" started-at="2018-04-29T05:15:53Z" finished-at="2018-04-29T05:15:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="generateReport()[pri:0, instance:homepagetest.TestSearch@5ae63ade]" name="generateReport" is-config="true" duration-ms="45" started-at="2018-04-29T02:17:02Z" finished-at="2018-04-29T02:17:02Z">
+        <test-method status="PASS" signature="generateReport()[pri:0, instance:homepagetest.TestSearch@3dd4520b]" name="generateReport" is-config="true" duration-ms="36" started-at="2018-04-29T05:15:56Z" finished-at="2018-04-29T05:15:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateReport -->

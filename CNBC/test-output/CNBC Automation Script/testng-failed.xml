@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [CNBC Automation Script]">
-  <parameter name="chromedriverpath" value="E:\\PIIT\\selenium-weekend\\classprojects\\WebAutomationTeamSeven\\Generic\\driver\\chromedriver.exe"/>
+  <parameter name="winfirefoxdriverpath" value="E:\WebAutomationTeamSeven\Generic\driver\geckodriver.exe"/>
   <parameter name="useCloudEnv" value="false"/>
   <parameter name="os" value="Windows"/>
+  <parameter name="filepath" value="E:\WebAutomationTeamSeven\CNBC\src\test\resources\locator.properties"/>
+  <parameter name="oxchromedriverpath" value=""/>
   <parameter name="browserName" value="chrome"/>
+  <parameter name="iedriverpath" value="E:\WebAutomationTeamSeven\Generic\driver\IEDriverServer.exe"/>
   <parameter name="url" value="https://www.cnbc.com/"/>
+  <parameter name="winchromedriverpath" value="E:\WebAutomationTeamSeven\Generic\driver\chromedriver.exe"/>
+  <parameter name="oxfirefoxdriverpath" value=""/>
   <test thread-count="5" name="CNBC Home(failed)">
     <classes>
-      <class name="homepagetest.TestSearch">
+      <class name="homepagetest.TestFeaturedImage">
         <methods>
-          <include name="testSeartch"/>
+          <include name="testFeaturedImage"/>
           <include name="afterEachTestMethod"/>
           <include name="generateReport"/>
           <include name="extentSetup"/>
@@ -18,7 +23,7 @@
           <include name="afterMethod"/>
           <include name="startExtent"/>
         </methods>
-      </class> <!-- homepagetest.TestSearch -->
+      </class> <!-- homepagetest.TestFeaturedImage -->
     </classes>
   </test> <!-- CNBC Home(failed) -->
 </suite> <!-- Failed suite [CNBC Automation Script] -->

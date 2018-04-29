@@ -86,12 +86,12 @@ public class CommonAPI {
         return calendar.getTime();
     }
 
-    @Parameters({"useCloudEnv","cloudEnvName","os","os_version","browserName","browserVersion","url"})
+    @Parameters({"useCloudEnv","cloudEnvName","os","os_version","browserName","browserVersion","url", "filepath"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false")String cloudEnvName,
                       @Optional("OS X") String os,@Optional("10") String os_version, @Optional("firefox") String browserName, @Optional("34")
-                              String browserVersion, @Optional("http://www.amazon.com") String url)throws IOException {
-        System.setProperty("webdriver.chrome.driver", "E:\\PIIT\\selenium-weekend\\classprojects\\Web-Automation-March2018\\Web-Automation-March2018\\Generic\\browser-driver\\chromedriver");
+                              String browserVersion, @Optional("http://www.amazon.com") String url, String filepath)throws IOException {
+        System.setProperty("webdriver.chrome.driver", readProperties("winchromedriverpath",filepath));
         if(useCloudEnv==true){
             if(cloudEnvName.equalsIgnoreCase("browserstack")) {
                 //getCloudDriver(cloudEnvName,browserstack_username,browserstack_accesskey,os,os_version, browserName, browserVersion);
@@ -99,7 +99,7 @@ public class CommonAPI {
                 //getCloudDriver(cloudEnvName,saucelabs_username, saucelabs_accesskey,os,os_version, browserName, browserVersion);
             }
         }else{
-            getLocalDriver(os, browserName);
+            getLocalDriver(os, browserName, filepath);
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
@@ -108,24 +108,24 @@ public class CommonAPI {
     }
 
     //change the webdriver path based on your local machine
-    public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName){
+    public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName, String filepath) throws IOException {
         if(browserName.equalsIgnoreCase("chrome")){
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.chrome.driver", "E:\\PIIT\\selenium-weekend\\classprojects\\WebAutomationTeamSeven\\Generic\\driver\\chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", readProperties("oxchromedriverpath", filepath));
             }else if(OS.equalsIgnoreCase("Windows")){
-                System.setProperty("webdriver.chrome.driver", "E:\\PIIT\\selenium-weekend\\classprojects\\WebAutomationTeamSeven\\Generic\\driver\\chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", readProperties("winchromedriverpath", filepath));
             }
             driver = new ChromeDriver();
         }else if(browserName.equalsIgnoreCase("firefox")){
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.gecko.driver", "E:\\PIIT\\selenium-weekend\\classprojects\\WebAutomationTeamSeven\\Generic\\driver\\geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", readProperties("oxfirefoxdriverpath", filepath));
             }else if(OS.equalsIgnoreCase("Windows")) {
-                System.setProperty("webdriver.gecko.driver", "E:\\PIIT\\selenium-weekend\\classprojects\\WebAutomationTeamSeven\\Generic\\driver\\geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", readProperties("winchromedriverpath", filepath));
             }
             driver = new FirefoxDriver();
 
         } else if(browserName.equalsIgnoreCase("ie")) {
-            System.setProperty("webdriver.ie.driver", "E:\\PIIT\\selenium-weekend\\classprojects\\WebAutomationTeamSeven\\Generic\\driver\\IEDriverServer.exe");
+            System.setProperty("webdriver.ie.driver", readProperties("iedriverpath", filepath));
             driver = new InternetExplorerDriver();
         }
         return driver;
@@ -466,20 +466,22 @@ public class CommonAPI {
     }
 
     //Guan add 4/25/2018
-    public static WebElement findElemByXpath(WebDriver driver, String key) throws IOException {
-        WebElement element = driver.findElement(By.xpath(readProperties(key)));
+    @Parameters({"filepath"})
+    public static WebElement findElemByXpath(WebDriver driver, String key, String filepath) throws IOException {
+        WebElement element = driver.findElement(By.xpath(readProperties(key, filepath)));
         return element;
     }
 
-    public static List<WebElement> findElemsByXpath(WebDriver driver, String key) throws IOException {
-        List<WebElement> elementList = driver.findElements(By.xpath(readProperties(key)));
+    @Parameters({"filepath"})
+    public static List<WebElement> findElemsByXpath(WebDriver driver, String key, String filepath) throws IOException {
+        List<WebElement> elementList = driver.findElements(By.xpath(readProperties(key, filepath)));
         return elementList;
     }
-
-    public static List<String> findElemsStringListByXpath(WebDriver driver, String key) throws IOException {
+    @Parameters({"filepath"})
+    public static List<String> findElemsStringListByXpath(WebDriver driver, String key, String filepath) throws IOException {
         System.out.println("key is ::" + key);
-        System.out.println("xpath is===:" + readProperties(key));
-        List<WebElement> elementList = driver.findElements(By.xpath("readProperties(key)"));
+        System.out.println("xpath is===:" + readProperties(key, filepath));
+        List<WebElement> elementList = driver.findElements(By.xpath("readProperties(key, filepath)"));
         List<String> stringList = new ArrayList<String>();
         for (WebElement ele : elementList) {
             stringList.add(ele.getText());
@@ -487,8 +489,9 @@ public class CommonAPI {
         return stringList;
     }
 
-    public static String readProperties(String key) throws IOException {
-        String filePath = "C:\\Users\\caog\\Documents\\misc\\Web-Automation-TeamSeven\\CNBC\\src\\test\\resources\\locator.properties";
+    @Parameters({"filepath"})
+    public static String readProperties(String key, String filepath) throws IOException {
+        String filePath = filepath;
         File f = new File(filePath);
         FileInputStream fis = new FileInputStream(f);
         Properties prop = new Properties();
