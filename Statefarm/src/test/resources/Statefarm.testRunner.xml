@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Statefarm Automation Script" parallel="false">
+<suite name="CNBC Automation Script" parallel="false">
 
     <parameter name="useCloudEnv" value="false"/>
     <!--<parameter name="cloudEnvName" value="browserstack"/>-->
@@ -13,17 +13,24 @@
     <!--<parameter name="os_version" value="Sierra"/>-->
     <!--<parameter name="browserName" value="chrome"/>-->
     <!--<parameter name="browserVersion" value="53.0"/>-->
+    <parameter name="filepath" value="/Users/bravo1516/Web-Automation-Framework/TeamSeven/Statefarm/src/test/resources/locator.properties"/>
+    <!--<parameter name="winchromedriverpath"-->
+               <!--value="E:\WebAutomationTeamSeven\Generic\driver\chromedriver.exe"/>-->
+    <!--<parameter name="oxchromedriverpath" value=""/>-->
+    <!--<parameter name="winfirefoxdriverpath" value="E:\WebAutomationTeamSeven\Generic\driver\geckodriver.exe"/>-->
+    <!--<parameter name="oxfirefoxdriverpath" value=""/>-->
+    <!--<parameter name="iedriverpath" value="E:\WebAutomationTeamSeven\Generic\driver\IEDriverServer.exe"/>-->
 
-    <!--<parameter name="chromedriverpath"-->
-               <!--value="E:\\PIIT\\selenium-weekend\\classprojects\\WebAutomationTeamSeven\\Generic\\driver\\chromedriver.exe"/>-->
-    <parameter name="url" value="https://www.statefarm.com"/>
+    <parameter name="url" value="https://www.statefarm.com/"/>
 
     <test name="Statefarm Home">
         <classes>
             <!--<class name="homepagetest.HomePageTests"/>-->
-            <!--<class name="MenuText.inusranceList"/>-->
+            <!--<class name="homepagetest.TestSearch"/>-->
+            <!--<class name="homepagetest.TestMenu"/>-->
+            <!--<class name="homepagetest.TestFeaturedImage"/>-->
+            <!--<class name="FindAgentbyZip.TestAgent"/>-->
             <class name="TestQuote.testQuoteValue"/>
-            <!--<class name="TestQuote.testAPImethods"/>-->
 
         </classes>
     </test>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Statemfarm</artifactId>
+    <artifactId>statemfarm</artifactId>
 
         <dependencies>
             <dependency>
@@ -35,7 +35,7 @@
                 <version>2.20.1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFiles>/Users/bravo1516/Web-Automation-Framework/Web-Automation-TeamSeven/Statefarm/src/test/resources/Statefarm.testRunner.xml</suiteXmlFiles>
+                        <suiteXmlFiles>/Users/bravo1516/Web-Automation-Framework/TeamSeven/Statefarm/src/test/resources/Statefarm.testRunner.xml</suiteXmlFiles>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
