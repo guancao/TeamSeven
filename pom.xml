@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>Generic</module>
+        <module>Alibaba</module>
         <module>Amazon</module>
         <module>CNBC</module>
         <module>KaiserPermanente</module>
@@ -43,11 +44,6 @@
             </dependency>
 
             <!--mysql-->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.6</version>
-            </dependency>
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>

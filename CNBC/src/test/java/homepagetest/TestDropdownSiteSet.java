@@ -20,13 +20,13 @@ public class TestDropdownSiteSet extends CommonAPI {
     public WebElement usEdition;
 
     @Test
-    public void testIntlEdition()throws InterruptedException{
+    public void testUslEdition()throws InterruptedException{
         EditionDropdown editionPage = PageFactory.initElements(driver, EditionDropdown.class);
         editionPage.chooseSiteSet(driver, dropdownSiteSet,usEdition);
         System.out.println(driver.getCurrentUrl());
     }
     @Test
-    public void testUslEdition()throws InterruptedException{
+    public void testIntllEdition()throws InterruptedException{
         EditionDropdown editionPage = PageFactory.initElements(driver, EditionDropdown.class);
         editionPage.chooseSiteSet(driver, dropdownSiteSet,intlEdition);
         System.out.println(driver.getCurrentUrl());
