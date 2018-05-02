@@ -16,10 +16,11 @@ public class testQuoteValue extends enterZipCode {
       enterZipCode zipCode = PageFactory.initElements(driver, enterZipCode.class);
       personalinfo personal = PageFactory.initElements(driver, personalinfo.class);
       addVehicle vehicle = PageFactory.initElements(driver, addVehicle.class);
-        XoutPopUpwindow Xout = PageFactory.initElements(driver, XoutPopUpwindow.class);
+      XoutPopUpwindow closePopUp = PageFactory.initElements(driver, XoutPopUpwindow.class);
+
 
       zipCode.enterZip();
-        Xout.handleWindow();
+
       personal.clientInfo();
       vehicle.vehicleInput();
 

@@ -335,8 +335,8 @@ public class CommonAPI {
         Select select = new Select(element);
         select.selectByVisibleText(value);
     }
-
-    public void sleepFor(int sec) throws InterruptedException {
+    //made static by Usman 05-01-18
+    public static void sleepFor(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);
     }
 
