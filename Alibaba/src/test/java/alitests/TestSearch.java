@@ -1,13 +1,13 @@
 package alitests;
 
 import alipages.HomeSearch;
-import base.CommonAPI;
+import base.CommonAPIb;
 import com.gargoylesoftware.htmlunit.Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-public class TestSearch extends CommonAPI {
+public class TestSearch extends CommonAPIb {
 
     @Test
     public void testHomeSearch1(){

@@ -12,6 +12,7 @@
     <parameter name="os" value="Windows"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="filepath" value="E:\WebAutomationTeamSeven\Alibaba\src\test\resources\locator.properties"/>
+    <parameter name="screenshotfilepath" value="E:\WebAutomationTeamSeven\Alibaba\screenshots\"/>
     <parameter name="secretPath" value="E:\WebAutomationTeamSeven\Alibaba\databaseinfo\secret.properties"/>
     <parameter name="user" value="garyclearmind@gmail.com"/>
     <parameter name="password" value="goTO123456"/>
@@ -21,8 +22,8 @@
     <test name="Alibaba Home">
         <classes>
 
-            <!--<class name="alitests.TestSignUp"/>-->
-            <!--<class name="alitests.TestSearch"/>-->
+            <class name="alitests.TestSignUp"/>
+            <class name="alitests.TestSearch"/>
             <class name="alitests.TestSignIn"/>
 
         </classes>

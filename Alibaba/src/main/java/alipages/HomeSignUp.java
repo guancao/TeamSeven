@@ -1,6 +1,6 @@
 package alipages;
 
-import base.CommonAPI;
+import base.CommonAPIb;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,7 @@ import org.testng.annotations.Parameters;
 
 import java.io.IOException;
 
-public class HomeSignUp extends CommonAPI {
+public class HomeSignUp extends CommonAPIb {
 
     public HomeSignUp() {
         super();
@@ -21,27 +21,25 @@ public class HomeSignUp extends CommonAPI {
     private String filepath = "E:\\WebAutomationTeamSeven\\Alibaba\\src\\test\\resources\\locator.properties";
 
     public void signUp(WebDriver driver) throws IOException, InterruptedException {
-        clickJoinFree(driver);
+        clickJoinFree();
         Thread.sleep(1000);
-        enterEmail(driver,"garyclearmind@gmail.com");
-        keyDownAndSlide(driver);
+        enterEmail("garyclearmind@gmail.com");
+        keyDownAndSlide();
         Thread.sleep(1000);
-        fillInCaptcha(driver, "");  //CAPTCHA  can't be automated, have to ask developer to disable it or provide workaround
+//        fillInCaptcha(driver, "");  //CAPTCHA  can't be automated, have to ask developer to disable it or provide workaround
 
         driver.switchTo().defaultContent(); //switch out of the frame.
     }
 
     @FindBy(linkText = "Join Free")
     public WebElement joinFree;
-
-    public void clickJoinFree(WebDriver driver) {
+    public void clickJoinFree() {
         joinFree.click();
     }
 
     @FindBy(xpath = "//input[@id='J_Email']")
     public WebElement email;
-
-    public void enterEmail(WebDriver driver, String emailAddr) throws IOException {
+    public void enterEmail(String emailAddr) throws IOException {
         driver.switchTo().frame(0); //("#alibaba-register-box");
 //        JavascriptExecutor jse = (JavascriptExecutor) driver;
 //        jse.executeScript("arg[0].click();", email);
@@ -50,23 +48,16 @@ public class HomeSignUp extends CommonAPI {
         email.sendKeys(emailAddr);
     }
 
-    //   @Parameters({"filepath"})
-//    public void enterEmail(String fpath) throws IOException {
-//
-//        email.sendKeys(readProperties("emailAddress", fpath));
-//    }
-
     @FindBy(xpath = "//*[@id='nc_1_n1z']")
-    public WebElement verify;
-
-    public void keyDownAndSlide(WebDriver driver) {
+    public WebElement s_verify;
+    public void keyDownAndSlide() {
         Actions action = new Actions(driver);
-        action.dragAndDropBy(verify, 20, 0).build().perform();
+        action.dragAndDropBy(s_verify, 20, 0).build().perform();
     }
 
-    @FindBy(xpath = ".//*[@id='nc_1_captcha_input']")
-    public WebElement captcha;
-    public void fillInCaptcha(WebDriver driver, String str){
-        captcha.sendKeys(str);
-    }
+//    @FindBy(xpath = ".//*[@id='nc_1_captcha_input']")
+//    public WebElement captcha;
+//    public void fillInCaptcha(String str){
+//        captcha.sendKeys(str);
+//    }
 }

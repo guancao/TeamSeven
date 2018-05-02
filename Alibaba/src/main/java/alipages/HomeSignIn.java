@@ -1,12 +1,12 @@
 package alipages;
 
-import base.CommonAPI;
+import base.CommonAPIb;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.Parameters;
 
-public class HomeSignIn extends CommonAPI {
+public class HomeSignIn extends CommonAPIb {
 //    HomeSignIn(){ super();}
     @FindBy(linkText = "Sign In")
     WebElement signIn;
@@ -22,7 +22,7 @@ public class HomeSignIn extends CommonAPI {
     WebElement submit;
 
     @Parameters({"user", "password"})
-    public void signIn(String user, String password, WebDriver driver){
+    public void signIn(String user, String password){
         clickOnSignIn();
         driver.switchTo().frame(0);
         email.sendKeys(user);

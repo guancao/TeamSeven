@@ -1,6 +1,6 @@
 package alipages;
 
-import base.CommonAPI;
+import base.CommonAPIb;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,9 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeSearch extends CommonAPI {
+public class HomeSearch extends CommonAPIb {
 
-    private WebDriver driver;
     public HomeSearch(){
         super();
     }
