@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class DataReader {
+public class DataReaderB {
     HSSFWorkbook wb = null;
     HSSFSheet sheet = null;
     //    Table.Cell cell = null;
@@ -21,6 +21,7 @@ public class DataReader {
     FileOutputStream fio = null;
     int numberOfRows, numberOfCol, rowNum;
 
+    //for multiple-column xls spreadsheet
     public String[][] fileReader1(String path) throws IOException {
         String[][] data = {};
         File file = new File(path);
@@ -42,6 +43,7 @@ public class DataReader {
         return data;
     }
 
+    //for single column xls spreadsheet
     public String[] fileReader2(String path) throws IOException {
         String[] data = {};
         File file = new File(path);

@@ -115,7 +115,7 @@ public class CommonAPIb {
 
     //change the webdriver path based on your local machine
     @Parameters({"filepath"})
-    public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName, String filepath) throws IOException {
+    public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName, @Optional("filepath") String filepath) throws IOException {
         if (browserName.equalsIgnoreCase("chrome")) {
             if (OS.equalsIgnoreCase("OS X")) {
                 System.setProperty("webdriver.chrome.driver", readProperties("oxchromedriverpath", filepath));
@@ -146,7 +146,7 @@ public class CommonAPIb {
         driver.quit();
     }
 
-    //    @Parameters({"chromedriverpath", "url"})
+      @Parameters({"chromedriverpath", "url"})
 //    @BeforeMethod
     public void setUpSimple(String chromedriverpath, String url) {    //@Optional("https://www.cnbc.com/")
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
@@ -453,7 +453,7 @@ public class CommonAPIb {
         driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
     }
 
-    public String convertToString(String st) {
+    public static String convertToString(String st) {
         String splitString;
         splitString = StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(st), ' ');
         return splitString;
