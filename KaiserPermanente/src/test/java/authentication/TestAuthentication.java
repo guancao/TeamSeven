@@ -10,7 +10,6 @@ public class TestAuthentication extends CommonAPI {
     public void signIn() {
         SignInPage signInPage = PageFactory.initElements(driver, SignInPage.class);
         signInPage.signInToKaiser(driver);
-       // Assert.assertEquals(driver.findElement(By.id("_firstName")).getText(),"fatima");
 
     }
 
