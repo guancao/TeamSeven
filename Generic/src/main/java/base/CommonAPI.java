@@ -28,9 +28,14 @@ import java.util.concurrent.TimeUnit;
 
 public class CommonAPI {
     public WebDriver driver = null;
+<<<<<<< HEAD
 
     public String browserstack_username = "muhammadusman25";
     public String browserstack_accesskey = "2Y6vk2WwEqsWsP1wppMJ";
+=======
+    public String browserstack_username = "your user name";
+    public String browserstack_accesskey = "your access key";
+>>>>>>> 77f0e4dcf13bbef0227100c3426b4994cbeb2777
     public String saucelabs_username = "";
     public String saucelabs_accesskey = "";
 
@@ -477,7 +482,6 @@ public class CommonAPI {
         return textList;
 
     }
-
     //Guan add 4/25/2018
     @Parameters({"filepath"})
     public static WebElement findElemByXpath(WebDriver driver, String key, String filepath) throws IOException {

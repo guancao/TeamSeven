@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>Generic</module>
+        <module>Alibaba</module>
         <module>Amazon</module>
         <module>CNBC</module>
         <module>KaiserPermanente</module>
@@ -46,6 +47,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
+<<<<<<< HEAD
                 <version>5.1.6</version>
             </dependency>
             <dependency>
@@ -56,6 +58,8 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
+=======
+>>>>>>> 77f0e4dcf13bbef0227100c3426b4994cbeb2777
                 <version>8.0.11</version>
             </dependency>
 
@@ -100,9 +104,27 @@
             <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml</artifactId>
-                <version>3.9</version>
+                <version>3.17</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>3.17</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/javax.xml.stream/stax-api -->
+            <dependency>
+                <groupId>javax.xml.stream</groupId>
+                <artifactId>stax-api</artifactId>
+                <version>1.0-2</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans</artifactId>
+                <version>2.6.0</version>
+            </dependency>
 
             <!--jdbc-->
             <dependency>

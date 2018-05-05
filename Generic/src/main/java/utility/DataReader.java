@@ -82,19 +82,19 @@ public class DataReader {
 
     }
 
-//    public void writeBack(String value) throws IOException {
-//        wb = new HSSFWorkbook();
-//        sheet = wb.createSheet();
-//        Row row = sheet.createRow(rowNum);
-//        row.setHeightInPoints(10);
-//
-//        fio = new FileOutputStream(new File("ExcelFile.xls"));
-//        wb.write(fio);
-//        for (int i = 0; i < row.getLastCellNum(); i++) {
-//            row.createCell(i);
-//            cell.setCellValue(value);
-//        }
-//        fio.close();
-//        wb.close();
-//    }
+    public void writeBack(String value) throws IOException {
+        wb = new HSSFWorkbook();
+        sheet = wb.createSheet();
+        Row row = sheet.createRow(rowNum);
+        row.setHeightInPoints(10);
+
+        fio = new FileOutputStream(new File("ExcelFile.xls"));
+        wb.write(fio);
+        for (int i = 0; i < row.getLastCellNum(); i++) {
+            row.createCell(i);
+            cell.setCellValue(value);
+        }
+        fio.close();
+        wb.close();
+    }
 }
