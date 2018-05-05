@@ -23,7 +23,8 @@
         <classes>
 
             <!--<class name="alitests.TestSignUp"/>-->
-            <class name="alitests.TestSearch"/>
+            <!--<class name="alitests.TestSearch"/>-->
+            <class name="alitests.TestSearchExcelInput"/>
             <!--<class name="alitests.TestSignIn"/>-->
 
         </classes>

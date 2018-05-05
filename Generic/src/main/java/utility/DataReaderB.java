@@ -7,61 +7,66 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.*;
 
 public class DataReaderB {
-    HSSFWorkbook wb = null;
-    HSSFSheet sheet = null;
+    XSSFWorkbook wb = null;
+    XSSFSheet sheet = null;
     //    Table.Cell cell = null;
     Cell cell;  //changed from above line, may cause problem  -- Guan
     FileOutputStream fio = null;
     int numberOfRows, numberOfCol, rowNum;
 
-    //for multiple-column xls spreadsheet
+    //2D array
     public String[][] fileReader1(String path) throws IOException {
         String[][] data = {};
         File file = new File(path);
-        FileInputStream fis = new FileInputStream(file);
-        wb = new HSSFWorkbook(fis);
+//        FileInputStream fis = new FileInputStream(file);
+        InputStream fis = new FileInputStream(file);
+        wb = new XSSFWorkbook(fis);
         sheet = wb.getSheetAt(0);
         numberOfRows = sheet.getLastRowNum();
         numberOfCol = sheet.getRow(0).getLastCellNum();
         data = new String[numberOfRows + 1][numberOfCol + 1];
 
         for (int i = 1; i < data.length; i++) {
-            HSSFRow rows = sheet.getRow(i);
+            XSSFRow rows = sheet.getRow(i);
             for (int j = 0; j < numberOfCol; j++) {
-                HSSFCell cell = rows.getCell(j);
-                String cellData = getCellValue(cell);
+                XSSFCell cell = rows.getCell(j);
+                String cellData = cell.getStringCellValue();
                 data[i][j] = cellData;
             }
         }
         return data;
     }
 
-    //for single column xls spreadsheet
-    public String[] fileReader2(String path) throws IOException {
-        String[] data = {};
+    //1-D array
+    public List<String> xlsxFileReaderB(String path) throws IOException {
+        List<String> data = new ArrayList<>();
         File file = new File(path);
         FileInputStream fis = new FileInputStream(file);
-        wb = new HSSFWorkbook(fis);
+        wb = new XSSFWorkbook(fis);
+
         sheet = wb.getSheetAt(0);
         numberOfRows = sheet.getLastRowNum();
         numberOfCol = sheet.getRow(0).getLastCellNum();
-        data = new String[numberOfRows + 1];
-
-        for (int i = 1; i < data.length; i++) {
-            HSSFRow rows = sheet.getRow(i);
+//       data = new String[numberOfRows + 1];
+        for (int i = 0; i < numberOfRows + 1; i++) {
+            XSSFRow rows = sheet.getRow(i);
             for (int j = 0; j < numberOfCol; j++) {
-                HSSFCell cell = rows.getCell(j);
-                String cellData = getCellValue(cell);
-                data[i] = cellData;
+                XSSFCell cell = rows.getCell(j);
+                String cellData = cell.getStringCellValue();
+                data.add(cellData);
             }
         }
+        wb.close();
+        fis.close();
         return data;
     }
 
@@ -84,19 +89,93 @@ public class DataReaderB {
 
     }
 
-    public void writeBack(String value) throws IOException {
-        wb = new HSSFWorkbook();
-        sheet = wb.createSheet();
-        Row row = sheet.createRow(rowNum);
-        row.setHeightInPoints(10);
+    public void xlsxFileWriterB(String value) throws IOException {
+        File file = new File(".\\data\\writeback.xlsx");
+        FileInputStream fis = new FileInputStream(file);
+        wb = new XSSFWorkbook(fis);
+        fis.close();
+//        sheet = wb.createSheet();
+//        Row row = sheet.createRow(rowNum);
+//        row.setHeightInPoints(10);
+        sheet = wb.getSheetAt(0);
+        int rownum = sheet.getLastRowNum();  //attach to the end of the sheet
+        XSSFRow row = sheet.createRow(rownum+1);  // have to create both row and cell
+        XSSFCell cell = row.createCell(0);
+        cell.setCellValue(value);
 
-        fio = new FileOutputStream(new File("ExcelFile.xls"));
-        wb.write(fio);
-        for (int i = 0; i < row.getLastCellNum(); i++) {
-            row.createCell(i);
-            cell.setCellValue(value);
-        }
-        fio.close();
+        // open an OutputStream to save written data into XLSX file
+        FileOutputStream fos = new FileOutputStream(".\\data\\writeback.xlsx");
+        wb.write(fos);
+        fos.close();
+//        fis.close();
         wb.close();
+
+        System.out.println("Writing on XLSX file Finished ...");
     }
+
+    public static void readXLSXFile() throws IOException {
+        InputStream ExcelFileToRead = new FileInputStream(".\\data\\ali.xlsx");
+        XSSFWorkbook workbook = new XSSFWorkbook(ExcelFileToRead);
+        XSSFSheet sheet = workbook.getSheetAt(0);
+        XSSFRow row;
+        XSSFCell cell;
+        Iterator rows = sheet.rowIterator();
+        while (rows.hasNext()) {
+            row = (XSSFRow) rows.next();
+            Iterator cells = row.cellIterator();
+            while (cells.hasNext()) {
+                cell = (XSSFCell) cells.next();
+                if (cell.getCellType() == XSSFCell.CELL_TYPE_STRING) {
+                    System.out.print(cell.getStringCellValue() + " ");
+                } else if (cell.getCellType() == XSSFCell.CELL_TYPE_NUMERIC) {
+                    System.out.print(cell.getNumericCellValue() + " ");
+                } else {
+                    //U Can Handel Boolean, Formula, Errors
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public void writeXlsxFile() throws IOException {
+        Map<String, Object[]> data = new HashMap<String, Object[]>();
+        data.put("7", new Object[]{7d, "Sonya", "75K", "SALES", "Rupert"});
+        data.put("8", new Object[]{8d, "Kris", "85K", "SALES", "Rupert"});
+        data.put("9", new Object[]{9d, "Dave", "90K", "SALES", "Rupert"});
+        // Set to Iterate and add rows into XLS file
+        Set<String> newRows = data.keySet();
+
+        File myFile = new File("C://temp/Employee.xlsx");
+        FileInputStream fis = new FileInputStream(myFile);
+        // Finds the workbook instance for XLSX file
+        XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
+        XSSFSheet mySheet = myWorkBook.getSheetAt(0);
+        // get the last row number to append new data
+        int rownum = mySheet.getLastRowNum();
+        for (String key : newRows) {
+            // Creating a new Row in existing XLSX sheet
+            Row row = mySheet.createRow(rownum++);
+            Object[] objArr = data.get(key);
+            int cellnum = 0;
+            for (Object obj : objArr) {
+                Cell cell = row.createCell(cellnum++);
+                if (obj instanceof String) {
+                    cell.setCellValue((String) obj);
+                } else if (obj instanceof Boolean) {
+                    cell.setCellValue((Boolean) obj);
+                } else if (obj instanceof Date) {
+                    cell.setCellValue((Date) obj);
+                } else if (obj instanceof Double) {
+                    cell.setCellValue((Double) obj);
+                }
+            }
+        }
+        // open an OutputStream to save written data into XLSX file
+        FileOutputStream os = new FileOutputStream(myFile);
+        myWorkBook.write(os);
+        System.out.println("Writing on XLSX file Finished ...");
+
+    }
+
+
 }
