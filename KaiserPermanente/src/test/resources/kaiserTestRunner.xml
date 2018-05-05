@@ -9,15 +9,19 @@
     <!--<parameter name="os_version" value="Sierra"/>-->
     <!--<parameter name="browserName" value="firefox"/>-->
     <!--<parameter name="browserVersion" value="53.0"/>-->
+    <parameter name="os" value="Windows"/>
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="filepath" value="C:\\Users\\fatim\\newTeamseven\\TeamSeven\\KaiserPermanente\\src\\test\\resources\\locator.properties"/>
+
     <parameter name="url" value="https://www.kaiserpermanente.org"/>
-    <parameter name="chromedriverpath" value="/Users/fatim/Web-Automation-TeamSeven/Generic/driver/chromedriver.exe"/>
     <test name = "Kaiser SignIn">
         <classes>
-            <class name="authentication.TestAuthentication"/>
-            <class name="authentication.TestPopUpWindow"/>
-            <class name="authentication.TestSignOut"/>
-            <class name="linktext.HandleLinkText"/>
-            <class name="home.TestSearchOptions"/>
+            <!--<class name="authentication.TestAuthentication"/>-->
+            <!--<class name="authentication.TestPopUpWindow"/>-->
+            <!--<class name="authentication.TestSignOut"/>-->
+            <!--<class name="linktext.HandleLinkText"/>-->
+            <!--<class name="home.TestSearchOptions"/>-->
+            <class name="linktext.TestLinkTextMember"/>
         </classes>
     </test>
 

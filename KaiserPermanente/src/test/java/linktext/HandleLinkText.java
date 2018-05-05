@@ -9,12 +9,6 @@ public class HandleLinkText extends CommonAPI {
     @Test
     public void linkText()throws InterruptedException {
         LinkTextPage linkTextPage= PageFactory.initElements(driver, LinkTextPage.class);
-       linkTextPage.linkTextPage(driver);
-         // linkTextPage.clickLinkByHref(driver);
+        linkTextPage.clickLinkByHref(driver);
     }
-
-
-
-
-
 }
