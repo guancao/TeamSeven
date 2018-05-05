@@ -28,8 +28,14 @@ import java.util.concurrent.TimeUnit;
 
 public class CommonAPI {
     public WebDriver driver = null;
+<<<<<<< HEAD
+
+    public String browserstack_username = "muhammadusman25";
+    public String browserstack_accesskey = "2Y6vk2WwEqsWsP1wppMJ";
+=======
     public String browserstack_username = "your user name";
     public String browserstack_accesskey = "your access key";
+>>>>>>> 77f0e4dcf13bbef0227100c3426b4994cbeb2777
     public String saucelabs_username = "";
     public String saucelabs_accesskey = "";
 
@@ -142,7 +148,7 @@ public class CommonAPI {
         Thread.sleep(3000);
 //        driver.manage().deleteAllCookies();
 //        driver.close();
-        driver.quit();
+//        driver.quit();
     }
 
     //    @Parameters({"chromedriverpath", "url"})
@@ -334,8 +340,8 @@ public class CommonAPI {
         Select select = new Select(element);
         select.selectByVisibleText(value);
     }
-
-    public void sleepFor(int sec) throws InterruptedException {
+    //made static by Usman 05-01-18
+    public static void sleepFor(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);
     }
 
