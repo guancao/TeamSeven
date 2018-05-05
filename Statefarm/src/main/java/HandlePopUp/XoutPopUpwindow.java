@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 public class XoutPopUpwindow extends CommonAPI{
 
 
-    @FindBy(css = ".submit-button")
+    @FindBy(css = ".sfCancelButton")
     public WebElement SuveryWindowWebElement;
     @FindBy(css = ".sfCancelButton")
     public WebElement FeedbackWindowCloseWebElement;

@@ -29,8 +29,8 @@ import java.util.concurrent.TimeUnit;
 public class CommonAPI {
     public WebDriver driver = null;
 
-    public String browserstack_username = "your user name";
-    public String browserstack_accesskey = "your access key";
+    public String browserstack_username = "muhammadusman25";
+    public String browserstack_accesskey = "2Y6vk2WwEqsWsP1wppMJ";
     public String saucelabs_username = "";
     public String saucelabs_accesskey = "";
 
@@ -143,7 +143,7 @@ public class CommonAPI {
         Thread.sleep(3000);
 //        driver.manage().deleteAllCookies();
 //        driver.close();
-        driver.quit();
+//        driver.quit();
     }
 
     //    @Parameters({"chromedriverpath", "url"})
