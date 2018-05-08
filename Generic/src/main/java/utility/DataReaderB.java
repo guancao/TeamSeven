@@ -1,5 +1,6 @@
 package utility;
 
+import base.CommonAPIb;
 import com.google.common.collect.Table;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -11,6 +12,8 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import java.io.*;
 import java.util.*;
@@ -46,11 +49,25 @@ public class DataReaderB {
         return data;
     }
 
+    @Parameters({"excelPath"})
+    public Properties loadExProperties(@Optional(".\\src\\test\\resources\\excel.properties") String excelPath) throws IOException {
+        System.out.println("passing parameter -- excelPath" + excelPath);
+        Properties prop = new Properties();
+        File f = new File(excelPath);
+        FileInputStream ism = new FileInputStream(f); //"/Users/peoplentech/develop/automation/Web-Automation-Framework/Generic/databaseinfo/secret.properties");
+        prop.load(ism);
+        ism.close();
+        return prop;
+    }
+
     //1-D array
-    public List<String> xlsxFileReaderB(String path) throws IOException {
+    public List<String> xlsxFileReaderB() throws IOException {
+        Properties prop = loadExProperties(".\\src\\test\\resources\\excel.properties");
+        String file_path = prop.getProperty("xlsxFilePath");
+        System.out.println("the excel file path is ===" + file_path);
+        File file = new File(file_path);
+        InputStream fis = new FileInputStream(file);
         List<String> data = new ArrayList<>();
-        File file = new File(path);
-        FileInputStream fis = new FileInputStream(file);
         wb = new XSSFWorkbook(fis);
 
         sheet = wb.getSheetAt(0);
@@ -69,6 +86,29 @@ public class DataReaderB {
         fis.close();
         return data;
     }
+
+    public List<String> simpleXlsxFileReader(String fPath) throws IOException {
+        File file = new File(fPath);
+        InputStream fis = new FileInputStream(file);
+        wb = new XSSFWorkbook(fis);
+        sheet = wb.getSheetAt(0);
+        numberOfRows = sheet.getLastRowNum();
+        numberOfCol = sheet.getRow(0).getLastCellNum();
+        List<String> data = new ArrayList<>();
+//       data = new String[numberOfRows + 1];
+        for (int i = 0; i < numberOfRows + 1; i++) {
+            XSSFRow rows = sheet.getRow(i);
+            for (int j = 0; j < numberOfCol; j++) {
+                XSSFCell cell = rows.getCell(j);
+                String cellData = cell.getStringCellValue();
+                data.add(cellData);
+            }
+        }
+        wb.close();
+        fis.close();
+        return data;
+    }
+
 
     public String getCellValue(HSSFCell cell) {
         Object value = null;
@@ -99,7 +139,7 @@ public class DataReaderB {
 //        row.setHeightInPoints(10);
         sheet = wb.getSheetAt(0);
         int rownum = sheet.getLastRowNum();  //attach to the end of the sheet
-        XSSFRow row = sheet.createRow(rownum+1);  // have to create both row and cell
+        XSSFRow row = sheet.createRow(rownum + 1);  // have to create both row and cell
         XSSFCell cell = row.createCell(0);
         cell.setCellValue(value);
 
@@ -114,7 +154,7 @@ public class DataReaderB {
     }
 
     public static void readXLSXFile() throws IOException {
-        InputStream ExcelFileToRead = new FileInputStream(".\\data\\ali.xlsx");
+        InputStream ExcelFileToRead = new FileInputStream(new File(".\\data\\ali.xlsx"));
         XSSFWorkbook workbook = new XSSFWorkbook(ExcelFileToRead);
         XSSFSheet sheet = workbook.getSheetAt(0);
         XSSFRow row;

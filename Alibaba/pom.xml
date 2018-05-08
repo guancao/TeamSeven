@@ -13,20 +13,28 @@
     <dependencies>
         <dependency>
             <groupId>WebAutomationTeamSeven</groupId>
-            <artifactId>generic</artifactId>
+            <artifactId>Generic</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
     <build>
-        <plugins>
+         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.21.0</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>Alibaba/target/test-classes/AlibabaTestRunner.xml</suiteXmlFile>
+                        <suiteXmlFile>E:\WebAutomationTeamSeven\Alibaba\target\test-classes\AlibabaTestRunner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

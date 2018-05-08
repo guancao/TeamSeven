@@ -22,6 +22,10 @@ public class HomeSearch extends CommonAPIb {
     @FindBy(name = "SearchText")
     public WebElement searchInputField;
 
+    //clear searchInputField
+    public void clearInputField(){
+        searchInputField.clear();
+    }
     //****search by input an item name
     public void searchItem(String itemName){   //search in the search box
         searchInputField.sendKeys(itemName, Keys.ENTER);

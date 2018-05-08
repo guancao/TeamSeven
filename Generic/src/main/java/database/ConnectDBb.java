@@ -8,9 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,21 +27,22 @@ public class ConnectDBb {
 
     //  make changes to pass parameter instead of hard code the filepath
     CommonAPIb commonAPI = new CommonAPIb();
+
     //    public Properties loadProperties() throws IOException{
-    @Parameters({"secretPath"})
-    public Properties loadProperties(@Optional("E:\\WebAutomationTeamSeven\\Alibaba\\databaseinfo\\secret.properties")
-                                                 String secretPath) throws IOException {
+//    @Parameters({"secretMySqlPath"})
+    @Parameters({"mysqlPath"})
+    public Properties loadMyProperties(@Optional(".\\src\\test\\resources\\mysql.properties") String mysqlPath) throws IOException {
         Properties prop = new Properties();
-        //       InputStream ism = new FileInputStream("/Users/peoplentech/develop/automation/Web-Automation-Framework/Generic/databaseinfo/secret.properties");
-        InputStream ism = new FileInputStream(secretPath); //"/Users/peoplentech/develop/automation/Web-Automation-Framework/Generic/databaseinfo/secret.properties");
+        File f=new File(mysqlPath);
+        FileInputStream ism = new FileInputStream(f); //"/Users/peoplentech/develop/automation/Web-Automation-Framework/Generic/databaseinfo/secret.properties");
         prop.load(ism);
         ism.close();
         return prop;
     }
-//    @Parameters({"secretPath"})
+
     public Connection connectToMySql() throws IOException, SQLException, ClassNotFoundException {
         //@Optional("E:\\WebAutomationTeamSeven\\Alibaba\\databaseinfo\\secret.properties") String secretPath) throws IOException, SQLException, ClassNotFoundException {
-        Properties prop = loadProperties("secretPath");
+        Properties prop = loadMyProperties(".\\databaseinfo\\secret.properties");
         String driverClass = prop.getProperty("MYSQLJDBC.driver");
         String url = prop.getProperty("MYSQLJDBC.url");
         String userName = prop.getProperty("MYSQLJDBC.userName");
@@ -59,7 +60,6 @@ public class ConnectDBb {
 //        return mongoDatabase;
 //    }
 
- //   @Parameters({"secretPath"})
     public List<String> readDataBase(String tableName, String columnName) throws Exception {
         List<String> data = new ArrayList<String>();
         try {
@@ -100,7 +100,6 @@ public class ConnectDBb {
         return dataList;
     }
 
-//    @Parameters({"secretPath"})
     public void insertDataFromArrayToMySql(int[] ArrayData, String tableName, String columnName) {
         try {
             connectToMySql();
@@ -123,7 +122,28 @@ public class ConnectDBb {
         }
     }
 
-//    @Parameters({"secretPath"})
+    public void insertDataFromArrayToMySql(String[] ArrayData, String tableName, String columnName) {
+        try {
+            connectToMySql();
+            ps = connect.prepareStatement("DROP TABLE IF EXISTS `" + tableName + "`;");
+            ps.executeUpdate();
+            ps = connect.prepareStatement("CREATE TABLE `" + tableName +
+                    "` (`ID` int(11) NOT NULL AUTO_INCREMENT,`" + columnName + "` varchar(250) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
+            ps.executeUpdate();
+            for (int n = 0; n < ArrayData.length; n++) {
+                ps = connect.prepareStatement("INSERT INTO " + tableName + " ( " + columnName + " ) VALUES(?)");
+                ps.setString(1, ArrayData[n]);
+                ps.executeUpdate();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void insertDataFromStringToMySql(String ArrayData, String tableName, String columnName) {
         try {
             connectToMySql();
@@ -153,7 +173,8 @@ public class ConnectDBb {
         }
         return data;
     }
-//    @Parameters({"secretPath"})
+
+    //    @Parameters({"secretPath"})
     public void insertDataFromArrayListToMySql(List<String> list, String tableName, String columnName) {
         try {
             connectToMySql();
@@ -176,7 +197,7 @@ public class ConnectDBb {
         }
     }
 
-//    @Parameters({"secretPath"})
+    //    @Parameters({"secretPath"})
     public void insertProfileToMySql(String tableName, String columnName1, String columnName2) {
         try {
             connectToMySql();
@@ -192,7 +213,8 @@ public class ConnectDBb {
             e.printStackTrace();
         }
     }
-//    @Parameters({"secretPath"})
+
+    //    @Parameters({"secretPath"})
     public List<String> readFromMySql() throws IOException, SQLException, ClassNotFoundException {
         List<String> list = new ArrayList<String>();
         try {

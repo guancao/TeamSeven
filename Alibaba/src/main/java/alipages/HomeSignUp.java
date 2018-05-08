@@ -41,10 +41,6 @@ public class HomeSignUp extends CommonAPIb {
     public WebElement email;
     public void enterEmail(String emailAddr) throws IOException {
         driver.switchTo().frame(0); //("#alibaba-register-box");
-//        JavascriptExecutor jse = (JavascriptExecutor) driver;
-//        jse.executeScript("arg[0].click();", email);
-//        jse.executeScript("arguments[0].setAttribute('value', emailAddr)",email);//        email.click();
-//        email.clear();
         email.sendKeys(emailAddr);
     }
 

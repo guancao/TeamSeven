@@ -76,7 +76,8 @@ public class CommonAPIb {
         ExtentTestManager.endTest();
         extent.flush();
         if (result.getStatus() == ITestResult.FAILURE) {
-            captureScreenshot(screenshootfilepath,result.getName());
+//            captureScreenshot(screenshootfilepath,result.getName());
+            captureScreenshot("./screenshoot/", result.getName());
         }
         driver.quit();
     }
@@ -92,12 +93,12 @@ public class CommonAPIb {
         return calendar.getTime();
     }
 
-    @Parameters({"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url", "filepath"})
+    @Parameters({"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url", "filePath"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false") String cloudEnvName,
                       @Optional("OS X") String os, @Optional("10") String os_version, @Optional("firefox") String browserName, @Optional("34")
-                              String browserVersion, @Optional("http://www.amazon.com") String url, String filepath) throws IOException {
-        System.setProperty("webdriver.chrome.driver", readProperties("winchromedriverpath", filepath));
+                              String browserVersion, @Optional("http://www.amazon.com") String url, String filePath) throws IOException {
+        System.setProperty("webdriver.chrome.driver", readProperties("winChromeDriverPath", filePath));
         if (useCloudEnv == true) {
             if (cloudEnvName.equalsIgnoreCase("browserstack")) {
                 //getCloudDriver(cloudEnvName,browserstack_username,browserstack_accesskey,os,os_version, browserName, browserVersion);
@@ -105,7 +106,7 @@ public class CommonAPIb {
                 //getCloudDriver(cloudEnvName,saucelabs_username, saucelabs_accesskey,os,os_version, browserName, browserVersion);
             }
         } else {
-            getLocalDriver(os, browserName, filepath);
+            getLocalDriver(os, browserName, filePath);
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
@@ -114,25 +115,25 @@ public class CommonAPIb {
     }
 
     //change the webdriver path based on your local machine
-    @Parameters({"filepath"})
-    public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName, @Optional("filepath") String filepath) throws IOException {
+    @Parameters({"filePath"})
+    public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName, @Optional("filePath") String filePath) throws IOException {
         if (browserName.equalsIgnoreCase("chrome")) {
             if (OS.equalsIgnoreCase("OS X")) {
-                System.setProperty("webdriver.chrome.driver", readProperties("oxchromedriverpath", filepath));
+                System.setProperty("webdriver.chrome.driver", readProperties("oxChromeDriverPath", filePath));
             } else if (OS.equalsIgnoreCase("Windows")) {
-                System.setProperty("webdriver.chrome.driver", readProperties("winchromedriverpath", filepath));
+                System.setProperty("webdriver.chrome.driver", readProperties("winChromeDriverPath", filePath));
             }
             driver = new ChromeDriver();
         } else if (browserName.equalsIgnoreCase("firefox")) {
             if (OS.equalsIgnoreCase("OS X")) {
-                System.setProperty("webdriver.gecko.driver", readProperties("oxfirefoxdriverpath", filepath));
+                System.setProperty("webdriver.gecko.driver", readProperties("oxFirefoxDriverPath", filePath));
             } else if (OS.equalsIgnoreCase("Windows")) {
-                System.setProperty("webdriver.gecko.driver", readProperties("winchromedriverpath", filepath));
+                System.setProperty("webdriver.gecko.driver", readProperties("winChromeDriverPath", filePath));
             }
             driver = new FirefoxDriver();
 
         } else if (browserName.equalsIgnoreCase("ie")) {
-            System.setProperty("webdriver.ie.driver", readProperties("iedriverpath", filepath));
+            System.setProperty("webdriver.ie.driver", readProperties("ieDriverPath", filePath));
             driver = new InternetExplorerDriver();
         }
         return driver;
@@ -146,10 +147,10 @@ public class CommonAPIb {
         driver.quit();
     }
 
-      @Parameters({"chromedriverpath", "url"})
+    @Parameters({"chromeDriverPath", "url"})
 //    @BeforeMethod
-    public void setUpSimple(String chromedriverpath, String url) {    //@Optional("https://www.cnbc.com/")
-        System.setProperty("webdriver.chrome.driver", chromedriverpath);
+    public void setUpSimple(String chromeDriverPath, String url) {    //@Optional("https://www.cnbc.com/")
+        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(url);
@@ -419,7 +420,7 @@ public class CommonAPIb {
     //Taking Screen shots
     public void takeScreenShot(String name) throws IOException {
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(file, new File(name+"screenShots.png"));
+        FileUtils.copyFile(file, new File(name + "screenShots.png"));
     }
 
     //Synchronization
@@ -478,25 +479,26 @@ public class CommonAPIb {
         return textList;
 
     }
+
     //Guan add 4/25/2018
-    @Parameters({"filepath"})
-    public static WebElement findElemByXpath(String key, @Optional("") String filepath) throws IOException {
-        WebElement element = driver.findElement(By.xpath(readProperties(key, filepath)));
+    @Parameters({"filePath"})
+    public static WebElement findElemByXpath(String key, @Optional("") String filePath) throws IOException {
+        WebElement element = driver.findElement(By.xpath(readProperties(key, filePath)));
         return element;
     }
 
-    @Parameters({"filepath"})
-    public static List<WebElement> findElemsByXpath(String key, @Optional("") String filepath) throws
+    @Parameters({"filePath"})
+    public static List<WebElement> findElemsByXpath(String key, @Optional("") String filePath) throws
             IOException {
-        List<WebElement> elementList = driver.findElements(By.xpath(readProperties(key, filepath)));
+        List<WebElement> elementList = driver.findElements(By.xpath(readProperties(key, filePath)));
         return elementList;
     }
 
-    @Parameters({"filepath"})
-    public static List<String> findElemsStringListByXpath(String key, @Optional("") String filepath) throws
+    @Parameters({"filePath"})
+    public static List<String> findElemsStringListByXpath(String key, @Optional("") String filePath) throws
             IOException {
         System.out.println("key is ::" + key);
-        String X_PATH = readProperties(key, filepath);
+        String X_PATH = readProperties(key, filePath);
         System.out.println("xpath is===:" + X_PATH);
         List<WebElement> elementList = driver.findElements(By.xpath("X_PATH"));
         List<String> stringList = new ArrayList<String>();
@@ -506,15 +508,13 @@ public class CommonAPIb {
         return stringList;
     }
 
-    @Parameters({"filepath"})
-    public static String readProperties(String key, @Optional("") String filepath) throws IOException {
-        String filePath = filepath;
+    @Parameters({"filePath"})
+    public static String readProperties(String key, @Optional("") String filePath) throws IOException {
         File f = new File(filePath);
-        FileInputStream fis = new FileInputStream(f);
+        InputStream fis = new FileInputStream(f);
         Properties prop = new Properties();
         prop.load(fis);
-        String locatr = prop.getProperty(key);
-        return locatr;
+        return prop.getProperty(key);
     }
 
     public List<String> getTextListXpath(String locator) {

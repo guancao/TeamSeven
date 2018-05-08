@@ -110,7 +110,6 @@ public class GoogleSheetReaderB {
 //    public static List<List<Object>> getGoogleSheetValues(@Optional("1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms") String sheetId,
 //                                                          @Optional("Class Data!A2:E") String dataRange) throws GeneralSecurityException, IOException {
     public static List<List<Object>> getGoogleSheetValues() throws GeneralSecurityException, IOException {
-
         // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
 //        final String spreadsheetId = sheetId;  //"1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms";
@@ -136,6 +135,24 @@ public class GoogleSheetReaderB {
 //            }
 //        }
     }
+    // custom methods
+    public static List<List<Object>> getGoogleSheetValues2() throws IOException, GeneralSecurityException{
+        // Build a new authorized API client service.
+        final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
+        final String spreadsheetId = "1RipEIeqO8WYDkB2fIBYmGs8b4iqTUHOUKoG6XZr68cM";
+        final String range = "Sheet1!A2:A";
+        Sheets service = new Sheets.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
+                .setApplicationName(APPLICATION_NAME)
+                .build();
+        ValueRange response = service.spreadsheets().values()
+                .get(spreadsheetId, range)
+                .execute();
+        List<List<Object>> values = response.getValues();
+        if (values == null || values.isEmpty()) {
+            System.out.println("No data found.");
+            return null;
+        } else {
+            return values;
+        }
+    }
 }
-
-
