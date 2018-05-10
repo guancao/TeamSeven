@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Statemfarm</artifactId>
+    <artifactId>statemfarm</artifactId>
 
         <dependencies>
             <dependency>
@@ -23,25 +23,16 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20.1</version>
+                <version>2.21.0</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFiles>/Users/bravo1516/Web-Automation-Framework/Web-Automation-TeamSeven/Statefarm/src/test/resources/Statefarm.testRunner.xml</suiteXmlFiles>
+                        <suiteXmlFile>/Users/bravo1516/Web-Automation-Framework/TeamSeven/Statefarm/src/test/resources/Statefarm.testRunner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 
 
 </project>

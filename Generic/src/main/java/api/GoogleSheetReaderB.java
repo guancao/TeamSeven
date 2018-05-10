@@ -25,14 +25,15 @@ import java.security.GeneralSecurityException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
 public class GoogleSheetReaderB {
-    private static final String APPLICATION_NAME = "Google Sheets API Java Quickstart";
+    private static final String APPLICATION_NAME = "WebAutomation";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
-    private static final String CREDENTIALS_FOLDER = "credentials"; // Directory to store user credentials.
+    private static final String CREDENTIALS_FOLDER = "./Alibaba/credentials"; // Directory to store user credentials.
     /**
      * Global instance of the scopes required by this quickstart.
      * If modifying these scopes, delete your previously saved credentials/ folder.
@@ -62,17 +63,12 @@ public class GoogleSheetReaderB {
     }
 
     /**
-     * Prints the names and majors of students in a sample spreadsheet:
-     * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-     *
-     * =================you have to enable API in your google account======================
+      * =================you have to enable API in your google account======================
      */
-    @Parameters({"secretPath"})
-    public static Properties loadProperties(@Optional("E:\\WebAutomationTeamSeven\\Alibaba\\databaseinfo\\secret.properties")
-                                             String secretPath) throws IOException {
+//    @Parameters({"secretPath"})
+    public static Properties loadProperties( String secretPath) throws IOException {
         Properties prop = new Properties();
-        //       InputStream ism = new FileInputStream("/Users/peoplentech/develop/automation/Web-Automation-Framework/Generic/databaseinfo/secret.properties");
-        InputStream ism = new FileInputStream(secretPath); //"/Users/peoplentech/develop/automation/Web-Automation-Framework/Generic/databaseinfo/secret.properties");
+        InputStream ism = new FileInputStream(secretPath);
         prop.load(ism);
         ism.close();
         return prop;
@@ -84,7 +80,7 @@ public class GoogleSheetReaderB {
     public static void main(String... args) throws IOException, GeneralSecurityException {
             // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-        Properties prop = loadProperties("secretPath");
+        Properties prop = loadProperties("E:\\WebAutomationTeamSeven\\Alibaba\\databaseinfo\\secret.properties");
         final String spreadsheetId = prop.getProperty("sheetId"); // "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms";
         final String range = prop.getProperty("dataRange"); //"Class Data!A2:E";
         Sheets service = new Sheets.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
@@ -103,6 +99,17 @@ public class GoogleSheetReaderB {
                 System.out.printf("%s, %s, %s\n", row.get(0), row.get(1), row.get(4));
             }
         }
+    }
+
+    public static List<String> getStringListFromGoogleSheet() throws IOException, GeneralSecurityException {
+        List<List<Object>> listObjectList = getGoogleSheetValues();
+        List<String> stringList = new ArrayList<String>();
+        for (int i = 0; i < listObjectList.size(); i++) {
+            List row = listObjectList.get(i);
+            stringList.add(row.get(0).toString());
+            System.out.println("The expected ====" + stringList.get(i));
+        }
+        return stringList;
     }
 
     //customized methods
@@ -140,7 +147,7 @@ public class GoogleSheetReaderB {
         // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         final String spreadsheetId = "1RipEIeqO8WYDkB2fIBYmGs8b4iqTUHOUKoG6XZr68cM";
-        final String range = "Sheet1!A2:A";
+        final String range = "Sheet1!A2:A6";
         Sheets service = new Sheets.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
                 .setApplicationName(APPLICATION_NAME)
                 .build();

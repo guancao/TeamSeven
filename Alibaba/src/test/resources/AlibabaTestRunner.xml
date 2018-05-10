@@ -12,6 +12,7 @@
     <parameter name="os" value="Windows"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="filePath" value="E:\WebAutomationTeamSeven\Alibaba\src\test\resources\locator.properties"/>
+    <parameter name="secretPath" value="E:\WebAutomationTeamSeven\Alibaba\databaseinfo\secret.properties"/>
     <parameter name="excelPath" value="E:\WebAutomationTeamSeven\Alibaba\src\test\resources\excel.properties"/>
     <parameter name="mysqlPath" value="E:\WebAutomationTeamSeven\Alibaba\src\test\resources\mysql.properties"/>
     <parameter name="screenshotfilepath" value="E:\WebAutomationTeamSeven\Alibaba\screenshots\"/>
@@ -28,7 +29,8 @@
 
             <!--<class name="alitests.TestSignUp"/>-->
             <!--<class name="alitests.TestSearch"/>-->
-            <class name="alitests.TestSearchExcelInput"/>
+            <!--<class name="alitests.TestSearchExcelInput"/>-->
+            <class name="alitests.TestSearchFromGoogleSheet"/>
             <!--<class name="alitests.TestMySqlSearch"/>-->
             <!--<class name="alitests.TestSignIn"/>-->
         </classes>

@@ -88,13 +88,13 @@ public class DataReader {
         Row row = sheet.createRow(rowNum);
         row.setHeightInPoints(10);
 
-        fio = new FileOutputStream(new File("ExcelFile.xls"));
+        fio = new FileOutputStream(new File(".\\data\\ExcelFile.xls"));
         wb.write(fio);
         for (int i = 0; i < row.getLastCellNum(); i++) {
             row.createCell(i);
             cell.setCellValue(value);
         }
         fio.close();
-        wb.close();
+//        wb.close();
     }
 }

@@ -1,13 +1,16 @@
 package alipages;
 
-import api.GoogleSheetReaderB;
+import api.GoogleSheetReaderG;
 import base.CommonAPIb;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.List;
 
 public class SearchFromGoogleSheets extends CommonAPIb {
@@ -23,28 +26,30 @@ public class SearchFromGoogleSheets extends CommonAPIb {
     }
 
     //clear searchInputField
-    public void clearInputField(){
+    public void clearInputField() {
         searchInputField.clear();
     }
 
     //****search by input an item name
-    public void searchItem(String itemName){   //search in the search box
+    public void searchItem(String itemName) {   //search in the search box
         clearInputField();
         searchInputField.sendKeys(itemName, Keys.ENTER);
     }
 
     //*******search with a prepared item list
-    public void searchItemList(List<String> itemList) {
+    public void searchGoogleSheetItemList() throws GeneralSecurityException, IOException {
+        List<String> itemList = getListFromGoogleSheets();
         for (String st : itemList) {
             clearInputField();
             getSearchInputField().sendKeys(st, Keys.ENTER);
         }
     }
 
-    @Parameters({"sheetId","dataRange"})
-    public void searchFromGoogleSheets(@Optional("") String sheetId, @Optional("") String dataRange){
+    //    @Parameters({"sheetId","dataRange"})
+    public static List<String> getListFromGoogleSheets() throws GeneralSecurityException, IOException { //@Optional("") String sheetId, @Optional("") String dataRange){
         List<String> itemList;
-        GoogleSheetReaderB gsr = new GoogleSheetReaderB();
-        gsr.
+        GoogleSheetReaderG gsr = PageFactory.initElements(driver, GoogleSheetReaderG.class);
+        itemList = GoogleSheetReaderG.getStringListFromGoogleSheet("dummies", "dummies");
+        return itemList;
     }
 }

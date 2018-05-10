@@ -67,7 +67,7 @@ public class DataReaderB {
         System.out.println("the excel file path is ===" + file_path);
         File file = new File(file_path);
         InputStream fis = new FileInputStream(file);
-        List<String> data = new ArrayList<>();
+        List<String> data = new ArrayList<String>();
         wb = new XSSFWorkbook(fis);
 
         sheet = wb.getSheetAt(0);
@@ -94,7 +94,7 @@ public class DataReaderB {
         sheet = wb.getSheetAt(0);
         numberOfRows = sheet.getLastRowNum();
         numberOfCol = sheet.getRow(0).getLastCellNum();
-        List<String> data = new ArrayList<>();
+        List<String> data = new ArrayList<String>();
 //       data = new String[numberOfRows + 1];
         for (int i = 0; i < numberOfRows + 1; i++) {
             XSSFRow rows = sheet.getRow(i);
