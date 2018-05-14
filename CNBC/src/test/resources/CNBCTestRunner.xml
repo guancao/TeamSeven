@@ -13,13 +13,13 @@
     <!--<parameter name="os_version" value="Sierra"/>-->
     <parameter name="browserName" value="chrome"/>
     <!--<parameter name="browserVersion" value="53.0"/>-->
-    <parameter name="filepath" value="E:\WebAutomationTeamSeven\CNBC\src\test\resources\locator.properties"/>
+    <parameter name="filepath" value="..\CNBC\src\test\resources\locator.properties"/>
     <parameter name="winchromedriverpath"
-               value="E:\WebAutomationTeamSeven\Generic\driver\chromedriver.exe"/>
+               value="..\Generic\driver\chromedriver.exe"/>
     <parameter name="oxchromedriverpath" value=""/>
-    <parameter name="winfirefoxdriverpath" value="E:\WebAutomationTeamSeven\Generic\driver\geckodriver.exe"/>
+    <parameter name="winfirefoxdriverpath" value="..\Generic\driver\geckodriver.exe"/>
     <parameter name="oxfirefoxdriverpath" value=""/>
-    <parameter name="iedriverpath" value="E:\WebAutomationTeamSeven\Generic\driver\IEDriverServer.exe"/>
+    <parameter name="iedriverpath" value="..\Generic\driver\IEDriverServer.exe"/>
 
     <parameter name="url" value="https://www.cnbc.com/"/>
 

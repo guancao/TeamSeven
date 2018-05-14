@@ -17,10 +17,7 @@ import com.google.api.services.sheets.v4.model.ValueRange;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.security.GeneralSecurityException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,7 +30,7 @@ import java.util.Properties;
 public class GoogleSheetReaderB {
     private static final String APPLICATION_NAME = "WebAutomation";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
-    private static final String CREDENTIALS_FOLDER = "./Alibaba/credentials"; // Directory to store user credentials.
+    private static final String CREDENTIALS_FOLDER = "credentials"; // Directory to store user credentials.
     /**
      * Global instance of the scopes required by this quickstart.
      * If modifying these scopes, delete your previously saved credentials/ folder.
@@ -65,22 +62,13 @@ public class GoogleSheetReaderB {
     /**
       * =================you have to enable API in your google account======================
      */
-//    @Parameters({"secretPath"})
-    public static Properties loadProperties( String secretPath) throws IOException {
-        Properties prop = new Properties();
-        InputStream ism = new FileInputStream(secretPath);
-        prop.load(ism);
-        ism.close();
-        return prop;
-    }
 
-//    @Parameters({"sheetId", "dataRange"})
-//    public static void main(@Optional("1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms") String sheetId,
-//            @Optional("Class Data!A2:E") String dataRange ) throws IOException, GeneralSecurityException { //String... args) throws IOException, GeneralSecurityException {
     public static void main(String... args) throws IOException, GeneralSecurityException {
             // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-        Properties prop = loadProperties("E:\\WebAutomationTeamSeven\\Alibaba\\databaseinfo\\secret.properties");
+        FileInputStream fis = new FileInputStream(new File(System.getProperty("user.dir")+"/Alibaba/src/test/resources/locator.properties"));
+        Properties prop = new Properties();
+        prop.load(fis);
         final String spreadsheetId = prop.getProperty("sheetId"); // "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms";
         final String range = prop.getProperty("dataRange"); //"Class Data!A2:E";
         Sheets service = new Sheets.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
@@ -96,13 +84,13 @@ public class GoogleSheetReaderB {
             System.out.println("Name, Major");
             for (List row : values) {
                 // Print columns A and E, which correspond to indices 0 and 4.
-                System.out.printf("%s, %s, %s\n", row.get(0), row.get(1), row.get(4));
+                System.out.printf("%s\n", row.get(0));
             }
         }
     }
 
-    public static List<String> getStringListFromGoogleSheet() throws IOException, GeneralSecurityException {
-        List<List<Object>> listObjectList = getGoogleSheetValues();
+    public static List<String> getStringListFromGoogleSheet(String locatorFilePath) throws IOException, GeneralSecurityException {
+        List<List<Object>> listObjectList = getGoogleSheetValues(locatorFilePath);
         List<String> stringList = new ArrayList<String>();
         for (int i = 0; i < listObjectList.size(); i++) {
             List row = listObjectList.get(i);
@@ -113,17 +101,15 @@ public class GoogleSheetReaderB {
     }
 
     //customized methods
-//    @Parameters({"sheetId", "dataRange"})
-//    public static List<List<Object>> getGoogleSheetValues(@Optional("1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms") String sheetId,
-//                                                          @Optional("Class Data!A2:E") String dataRange) throws GeneralSecurityException, IOException {
-    public static List<List<Object>> getGoogleSheetValues() throws GeneralSecurityException, IOException {
+    public static List<List<Object>> getGoogleSheetValues(String locatorFilePath) throws GeneralSecurityException, IOException {
         // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-//        final String spreadsheetId = sheetId;  //"1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms";
-//        final String range = dataRange;  //"Class Data!A2:E";
-        Properties prop = loadProperties("secretPath");
+        FileInputStream fis = new FileInputStream(new File(System.getProperty("user.dir")+locatorFilePath));
+        Properties prop = new Properties();
+        prop.load(fis);
         final String spreadsheetId = prop.getProperty("sheetId"); // "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms";
         final String range = prop.getProperty("dataRange"); //"Class Data!A2:E";
+
         Sheets service = new Sheets.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
                 .setApplicationName(APPLICATION_NAME)
                 .build();
@@ -132,15 +118,6 @@ public class GoogleSheetReaderB {
                 .execute();
         List<List<Object>> values = response.getValues();
         return values;
-//        if (values == null || values.isEmpty()) {
-//            System.out.println("No data found.");
-//        } else {
-//            System.out.println("Name, Major");
-//            for (List row : values) {
-//                // Print columns A and E, which correspond to indices 0 and 4.
-//                System.out.printf("%s, %s, %s\n", row.get(0), row.get(1), row.get(4));
-//            }
-//        }
     }
     // custom methods
     public static List<List<Object>> getGoogleSheetValues2() throws IOException, GeneralSecurityException{
