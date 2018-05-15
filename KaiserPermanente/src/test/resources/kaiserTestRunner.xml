@@ -11,7 +11,7 @@
     <!--<parameter name="browserVersion" value="53.0"/>-->
     <parameter name="os" value="Windows"/>
     <parameter name="browserName" value="chrome"/>
-    <parameter name="filepath" value="C:\\Users\\fatim\\newTeamseven\\TeamSeven\\KaiserPermanente\\src\\test\\resources\\locator.properties"/>
+    <parameter name="filepath" value="..\\KaiserPermanente\\src\\test\\resources\\locator.properties"/>
 
     <parameter name="url" value="https://www.kaiserpermanente.org"/>
     <test name = "Kaiser SignIn">

@@ -9,7 +9,7 @@
     <!--<parameter name="os_version" value="Sierra"/>-->
     <!--<parameter name="browserName" value="firefox"/>-->
     <!--<parameter name="browserVersion" value="53.0"/>-->
-    <parameter name="chromedriverpath" value="E:\\PIIT\\selenium-weekend\\classprojects\\WebAutomationTeamSeven\\Generic\\driver\\chromedriver.exe"/>
+    <parameter name="chromedriverpath" value="..\\Generic\\driver\\chromedriver.exe"/>
     <parameter name="url" value="https://www.amazon.com"/>
 
     <test name = "Amazon Home">
