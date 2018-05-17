@@ -90,7 +90,7 @@ public class DataReaderB {
     public List<String> simpleXlsxFileReader(String fPath) throws IOException {
         File file = new File(fPath);
         InputStream fis = new FileInputStream(file);
-        wb = new XSSFWorkbook(fis);
+        XSSFWorkbook wb = new XSSFWorkbook(fis);
         sheet = wb.getSheetAt(0);
         numberOfRows = sheet.getLastRowNum();
         numberOfCol = sheet.getRow(0).getLastCellNum();
@@ -130,8 +130,8 @@ public class DataReaderB {
     }
 
     public void xlsxFileWriterB(String value) throws IOException {
-        File file = new File(".\\data\\writeback.xlsx");
-        FileInputStream fis = new FileInputStream(file);
+        File file = new File(System.getProperty("user.dir")+"/data/writeback.xlsx"); //"E:\\WebAutomationTeamSeven\\Alibaba\\data\\writeback.xlsx");
+        InputStream fis = new FileInputStream(file);
         wb = new XSSFWorkbook(fis);
         fis.close();
 //        sheet = wb.createSheet();
@@ -144,7 +144,7 @@ public class DataReaderB {
         cell.setCellValue(value);
 
         // open an OutputStream to save written data into XLSX file
-        FileOutputStream fos = new FileOutputStream(".\\data\\writeback.xlsx");
+        FileOutputStream fos = new FileOutputStream(file);//".\\data\\writeback.xlsx");
         wb.write(fos);
         fos.close();
 //        fis.close();

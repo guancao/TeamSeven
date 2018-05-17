@@ -4,7 +4,10 @@ import alipages.HomeSearch;
 import alipages.HomeSignIn;
 import base.CommonAPIb;
 import database.ConnectDBb;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import reporting.TestLogger;
 
@@ -36,7 +39,11 @@ public class TestMySqlSearch extends CommonAPIb {
             System.out.println("Item from the MySql to be searched : " + "\t"+ st);
             hs.clearInputField();
             hs.searchItem(st);
-            Thread.sleep(2000);
+            captureScreenshot("./screenshot/",CommonAPIb.convertToString(new Object() {
+            }.getClass().getEnclosingMethod().getName()));
+//            Thread.sleep(3000);
+            WebDriverWait wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("SearchText")));
         }
 
     }

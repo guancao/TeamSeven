@@ -57,9 +57,8 @@ public class CommonAPIb {
         return sw.toString();
     }
 
-    @Parameters({"screenshootfilepath"})
     @AfterMethod
-    public void afterEachTestMethod(@Optional("") String screenshootfilepath, ITestResult result) {
+    public void afterEachTestMethod(ITestResult result) {
         ExtentTestManager.getTest().getTest().setStartedTime(getTime(result.getStartMillis()));
         ExtentTestManager.getTest().getTest().setEndedTime(getTime(result.getEndMillis()));
 
@@ -76,9 +75,10 @@ public class CommonAPIb {
         ExtentTestManager.endTest();
         extent.flush();
         if (result.getStatus() == ITestResult.FAILURE) {
-//            captureScreenshot(screenshootfilepath,result.getName());
-            captureScreenshot("./screenshoot/", result.getName());
+            captureScreenshot("screenshootFilePath",result.getName());
+//            captureScreenshot("./screenshoot/", result.getName());
         }
+        captureScreenshot("screenshootFilePath",result.getName());
         driver.quit();
     }
 
@@ -156,6 +156,15 @@ public class CommonAPIb {
         driver.get(url);
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
+    }
+
+    @Parameters({"filePath"})
+    public static String readProperties(String key, @Optional("") String filePath) throws IOException {
+        File f = new File(filePath);
+        InputStream fis = new FileInputStream(f);
+        Properties prop = new Properties();
+        prop.load(fis);
+        return prop.getProperty(key);
     }
 
     public void clickOnCss(String locator) {
@@ -401,15 +410,15 @@ public class CommonAPIb {
         driver.findElement(By.linkText(locator)).findElement(By.tagName("a")).getText();
     }
 
-    @Parameters({"screenshotfilepath"})
-    public static void captureScreenshot(@Optional("") String screenshootfilepath, String screenshotName) {
+    @Parameters({"screenshotFilePath"})
+    public static void captureScreenshot(@Optional("") String screenshootFilePath, String screenshotName) {
         DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
         Date date = new Date();
         df.format(date);
 
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file, new File(screenshootfilepath + screenshotName + " " + df.format(date) + ".png"));
+            FileUtils.copyFile(file, new File(screenshootFilePath + screenshotName + " " + df.format(date) + ".png"));
             System.out.println("Screenshot captured");
         } catch (Exception e) {
             System.out.println("Exception while taking screenshot " + e.getMessage());
@@ -508,14 +517,7 @@ public class CommonAPIb {
         return stringList;
     }
 
-    @Parameters({"filePath"})
-    public static String readProperties(String key, @Optional("") String filePath) throws IOException {
-        File f = new File(filePath);
-        InputStream fis = new FileInputStream(f);
-        Properties prop = new Properties();
-        prop.load(fis);
-        return prop.getProperty(key);
-    }
+
 
     public List<String> getTextListXpath(String locator) {
         List<WebElement> elementList = new ArrayList<WebElement>();

@@ -25,7 +25,7 @@ public class SearchFromExcel extends CommonAPIb {
     }
 
     public void searchItemsFromExcel() throws IOException, InterruptedException {
-        String excelFilePath = "./data/ali.xlsx"; //"E:\\WebAutomationTeamSeven\\Alibaba\\data\\ali.xlsx";
+        String excelFilePath = System.getProperty("user.dir")+"/data/ali.xlsx"; //"E:\\WebAutomationTeamSeven\\Alibaba\\data\\ali.xlsx";
         DataReaderB dr = PageFactory.initElements(driver, DataReaderB.class);
         List<String> searchItems = dr.xlsxFileReaderB();
         for (String st : searchItems) {
@@ -37,7 +37,7 @@ public class SearchFromExcel extends CommonAPIb {
     }
 
     public void searchItemsFromExcel2() throws IOException, InterruptedException {
-        String excelFilePath=".\\data\\ali.xlsx";//"E:\\WebAutomationTeamSeven\\Alibaba\\data\\ali.xlsx";
+        String excelFilePath="E:\\WebAutomationTeamSeven\\Alibaba\\data\\ali.xlsx"; // "/data/ali.xlsx";
         DataReaderB dr = new DataReaderB();
         List<String> searchItems = dr.simpleXlsxFileReader(excelFilePath);
         for (String st : searchItems) {

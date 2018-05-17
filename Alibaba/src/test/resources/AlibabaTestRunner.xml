@@ -11,14 +11,14 @@
     <!--<parameter name="browserVersion" value="53.0"/>-->
     <parameter name="os" value="Windows"/>
     <parameter name="browserName" value="chrome"/>
-    <parameter name="filePath" value="..\src\test\resources\locator.properties"/>
+    <parameter name="filePath" value=".\src\test\resources\locator.properties"/>
     <parameter name="locatorFilePath" value="\src\test\resources\locator.properties"/>
-    <parameter name="secretPath" value="..\databaseinfo\secret.properties"/>
-    <parameter name="excelPath" value="..\src\test\resources\excel.properties"/>
-    <parameter name="mysqlPath" value="..\src\test\resources\mysql.properties"/>
-    <parameter name="screenshotfilepath" value="..\screenshots\"/>
-    <parameter name="xlsxFilePath" value="..\data\ali.xlsx"/>
-    <parameter name="secretMySqlPath" value="..\databaseinfo\secret.properties"/>
+    <parameter name="secretPath" value=".\databaseinfo\secret.properties"/>
+    <parameter name="excelPath" value="\src\test\resources\excel.properties"/>
+    <parameter name="mysqlPath" value=".\src\test\resources\mysql.properties"/>
+    <parameter name="screenshotFilePath" value=".\screenshoot"/>
+    <parameter name="xlsxFilePath" value=".\data\ali.xlsx"/>
+    <parameter name="secretMySqlPath" value=".\databaseinfo\secret.properties"/>
     <parameter name="user" value="garyclearmind@gmail.com"/>
     <parameter name="password" value="goTO123456"/>
     <parameter name="sheetId" value="Alibaba"/>
@@ -28,12 +28,12 @@
     <test name="Alibaba Home">
         <classes>
 
-            <!--<class name="alitests.TestSignUp"/>-->
-            <!--<class name="alitests.TestSearch"/>-->
-            <!--<class name="alitests.TestSearchExcelInput"/>-->
+            <class name="alitests.TestSignUp"/>
+            <class name="alitests.TestSearch"/>
+            <class name="alitests.TestSearchExcelInput"/>
             <class name="alitests.TestSearchFromGoogleSheet"/>
-            <!--<class name="alitests.TestMySqlSearch"/>-->
-            <!--<class name="alitests.TestSignIn"/>-->
+            <class name="alitests.TestMySqlSearch"/>
+            <class name="alitests.TestSignIn"/>
         </classes>
     </test>
 </suite>
