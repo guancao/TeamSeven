@@ -34,7 +34,7 @@
                 <version>2.21.0</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>\target\test-classes\AlibabaTestRunner.xml</suiteXmlFile>
+                        <suiteXmlFile>.\target\test-classes\AlibabaTestRunner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
