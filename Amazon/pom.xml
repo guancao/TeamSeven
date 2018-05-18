@@ -27,7 +27,7 @@
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>
-                            target/test-classes/AmazonTestRuuner.xml
+                            ./target/test-classes/AmazonTestRuuner.xml
                         </suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>

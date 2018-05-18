@@ -54,7 +54,7 @@
 					<i class='mdi-hardware-desktop-windows'></i>
 				</li>
 				<li>
-					<span class='suite-started-time'>2018-05-17 20:24:21</span>
+					<span class='suite-started-time'>2018-05-17 20:25:27</span>
 				</li>
 				<li>
 					<span>v2.41.1</span>
@@ -84,13 +84,13 @@
 					<div class='col l2 m4 s12'>
 						<div class='card suite-total-time-current'> 
 							<span class='panel-name'>Total Time Taken (Current Run)</span> 
-							<span class='suite-total-time-current-value panel-lead'>0h 2m 16s+636ms</span> 
+							<span class='suite-total-time-current-value panel-lead'>0h 3m 22s+588ms</span> 
 						</div> 
 					</div>
 					<div class='col l2 m4 s12'>
 						<div class='card suite-total-time-overall'> 
 							<span class='panel-name'>Total Time Taken (Overall)</span> 
-							<span class='suite-total-time-overall-value panel-lead'>0h 2m 16s+636ms</span> 
+							<span class='suite-total-time-overall-value panel-lead'>0h 3m 22s+588ms</span> 
 						</div> 
 					</div>
 					<div class='col l2 m4 s6 suite-start-time'>
@@ -102,7 +102,7 @@
 					<div class='col l2 m4 s6 suite-end-time'>
 						<div class='card accent pink-accent'> 
 							<span class='panel-name'>End</span> 
-							<span class='panel-lead suite-ended-time'>2018-05-17 20:24:21</span> 
+							<span class='panel-lead suite-ended-time'>2018-05-17 20:25:27</span> 
 						</div> 
 					</div>
 				</div>
@@ -205,6 +205,11 @@
 									<tbody>
 											<tr>
 												<td>
+													TestMySqlSearch
+												</td>
+											</tr>
+											<tr>
+												<td>
 													TestSearch
 												</td>
 											</tr>
@@ -216,6 +221,11 @@
 											<tr>
 												<td>
 													TestSearchFromGoogleSheet
+												</td>
+											</tr>
+											<tr>
+												<td>
+													TestSignIn
 												</td>
 											</tr>
 											<tr>
@@ -256,9 +266,11 @@
 										<i class='mdi-maps-local-offer'></i>
 									</a>
 									<ul id='category-toggle' class='dropdown-content'>
+											<li class='TestMySqlSearch'><a href='#!'>TestMySqlSearch</a></li>
 											<li class='TestSearch'><a href='#!'>TestSearch</a></li>
 											<li class='TestSearchExcelInput'><a href='#!'>TestSearchExcelInput</a></li>
 											<li class='TestSearchFromGoogleSheet'><a href='#!'>TestSearchFromGoogleSheet</a></li>
+											<li class='TestSignIn'><a href='#!'>TestSignIn</a></li>
 											<li class='TestSignUp'><a href='#!'>TestSignUp</a></li>
 										<li class='divider'></li>
 										<li class='clear'><a href='#!'>Clear Filters</a></li>
@@ -556,6 +568,136 @@
 												</div>
 											</div>
 										</li>
+										<li class='collection-item test displayed active pass ' extentid='10aaac96-7c0a-4337-b886-003ce9d9991f'>
+											<div class='test-head'>
+												<span class='test-name'>testInsertMysql </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  testmysqlsearch'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-05-17 20:24:30</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-05-17 20:24:31</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 1s+164ms</span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>TestMySqlSearch</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>20:24:30</td>
+																	<td class='step-details'>TestMySqlSearch: test Insert Mysql<br></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>20:24:31</td>
+																	<td class='step-details'>Test Passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='fbf3214a-280a-4b03-9cca-b51a103062b6'>
+											<div class='test-head'>
+												<span class='test-name'>testItemsFromMysql </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  testmysqlsearch'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-05-17 20:24:40</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-05-17 20:25:11</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 31s+173ms</span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>TestMySqlSearch</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>20:24:40</td>
+																	<td class='step-details'>TestMySqlSearch: test Items From Mysql<br></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>20:25:11</td>
+																	<td class='step-details'>Test Passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='13af9d55-c30f-4150-90c7-cec54c98c9a4'>
+											<div class='test-head'>
+												<span class='test-name'>testSignIn </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide  testsignin'></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-05-17 20:25:20</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-05-17 20:25:23</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 2s+650ms</span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+														<div class='categories'>
+																<span class='category text-white'>TestSignIn</span>
+														</div>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>20:25:23</td>
+																	<td class='step-details'>Test Passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
 								</ul>
 							</div>
 						</div>
@@ -603,6 +745,46 @@
 							<div class='card-panel no-padding-h no-padding-v'>
 								<div class='wrapper'>
 									<ul id='cat-collection' class='cat-collection'>
+											<li class='category-item displayed'>
+												<div class='cat-head'>
+													<span class='category-name'>TestMySqlSearch</span>
+												</div>
+												<div class='category-status-counts'>
+														<span class='pass label dot'>Pass: 2</span>
+												</div>
+												<div class='cat-body'>
+													<div class='category-status-counts'>
+														<div class='button-group'>
+															<a href='#!' class='pass label filter'>Pass <span class='icon'>2</span></a>
+															<a href='#!' class='fail label filter'>Fail <span class='icon'>0</span></a>
+															<a href='#!' class='other label filter'>Others <span class='icon'>0</span></a>
+														</div>
+													</div>
+													<div class='cat-tests'>
+														<table class='bordered'>
+															<thead>
+																<tr>
+																	<th>RunDate</th>
+																	<th>Test Name</th>
+																	<th>Status</th>
+																</tr>
+															</thead>
+															<tbody>
+																	<tr class='pass'>
+																		<td>2018-05-17 20:24:30</td>
+																		<td><span class='category-link linked' extentid='10aaac96-7c0a-4337-b886-003ce9d9991f'>testInsertMysql</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+																	<tr class='pass'>
+																		<td>2018-05-17 20:24:40</td>
+																		<td><span class='category-link linked' extentid='fbf3214a-280a-4b03-9cca-b51a103062b6'>testItemsFromMysql</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+															<tbody>
+														</table>
+													</div>
+												</div> 
+											</li>
 											<li class='category-item displayed'>
 												<div class='cat-head'>
 													<span class='category-name'>TestSearch</span>
@@ -711,6 +893,41 @@
 																	<tr class='pass'>
 																		<td>2018-05-17 20:23:56</td>
 																		<td><span class='category-link linked' extentid='d9549361-8048-43e5-a2ab-8182c11acde6'>testGoogleSheetSearch02</span></td>
+																		<td><div class='status label capitalize pass'>pass</div></td>
+																	</tr>
+															<tbody>
+														</table>
+													</div>
+												</div> 
+											</li>
+											<li class='category-item displayed'>
+												<div class='cat-head'>
+													<span class='category-name'>TestSignIn</span>
+												</div>
+												<div class='category-status-counts'>
+														<span class='pass label dot'>Pass: 1</span>
+												</div>
+												<div class='cat-body'>
+													<div class='category-status-counts'>
+														<div class='button-group'>
+															<a href='#!' class='pass label filter'>Pass <span class='icon'>1</span></a>
+															<a href='#!' class='fail label filter'>Fail <span class='icon'>0</span></a>
+															<a href='#!' class='other label filter'>Others <span class='icon'>0</span></a>
+														</div>
+													</div>
+													<div class='cat-tests'>
+														<table class='bordered'>
+															<thead>
+																<tr>
+																	<th>RunDate</th>
+																	<th>Test Name</th>
+																	<th>Status</th>
+																</tr>
+															</thead>
+															<tbody>
+																	<tr class='pass'>
+																		<td>2018-05-17 20:25:20</td>
+																		<td><span class='category-link linked' extentid='13af9d55-c30f-4150-90c7-cec54c98c9a4'>testSignIn</span></td>
 																		<td><div class='status label capitalize pass'>pass</div></td>
 																	</tr>
 															<tbody>
