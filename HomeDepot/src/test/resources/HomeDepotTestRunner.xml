@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="CNBC Automation Script" parallel="false">
+
+    <parameter name="useCloudEnv" value="false"/>
+    <!--<parameter name="cloudEnvName" value="browserstack"/>-->
+    <!--<parameter name="os" value="OS X"/>-->
+    <!--<parameter name="os_version" value="Sierra"/>-->
+    <!--<parameter name="browserName" value="firefox"/>-->
+    <!--<parameter name="browserVersion" value="53.0"/>-->
+    <parameter name="os" value="Windows"/>
+    <!--<parameter name="os_version" value="Sierra"/>-->
+    <parameter name="browserName" value="chrome"/>
+    <!--<parameter name="browserVersion" value="53.0"/>-->
+    <parameter name="winchromedriverpath"
+               value="..\Generic\driver\chromedriver.exe"/>
+    <parameter name="oxchromedriverpath" value=""/>
+    <parameter name="winfirefoxdriverpath" value="..\Generic\driver\geckodriver.exe"/>
+    <parameter name="oxfirefoxdriverpath" value=""/>
+    <parameter name="iedriverpath" value="..\Generic\driver\IEDriverServer.exe"/>
+
+    <parameter name="url" value="https://www.cnbc.com/"/>
+
+    <test name="CNBC Home">
+        <classes>
+            <!--<class name="homepagetest.HomePageTests"/>-->
+            <!--<class name="homepagetest.TestMenu"/>-->
+            <!--<class name="homepagetest.TestFeaturedImage"/>-->
+
+        </classes>
+    </test>
+</suite>

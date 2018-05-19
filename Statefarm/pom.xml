@@ -27,7 +27,7 @@
                 <version>2.21.0</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>/Users/bravo1516/Web-Automation-Framework/TeamSeven/Statefarm/src/test/resources/Statefarm.testRunner.xml</suiteXmlFile>
+                        <suiteXmlFile>target/test-classes/Statefarm.testRunner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
