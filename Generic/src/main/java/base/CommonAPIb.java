@@ -28,8 +28,8 @@ import java.util.concurrent.TimeUnit;
 
 public class CommonAPIb {
     public static WebDriver driver; // = null;
-    public String browserstack_username = "your user name";
-    public String browserstack_accesskey = "your access key";
+    public String browserstack_username = "garycao2";
+    public String browserstack_accesskey = "kLFYzgAn1Tqy6YPWWDWs";
     public String saucelabs_username = "";
     public String saucelabs_accesskey = "";
 
