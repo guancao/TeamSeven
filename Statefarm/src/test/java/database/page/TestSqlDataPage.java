@@ -1,6 +1,6 @@
 package database.page;
 
-import findAgent.SearchAgent;
+import FindAgent.SearchAgent;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 

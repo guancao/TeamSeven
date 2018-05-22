@@ -1,4 +1,4 @@
-package findAgent;
+package FindAgent;
 
 import base.CommonAPI;
 import org.openqa.selenium.Keys;

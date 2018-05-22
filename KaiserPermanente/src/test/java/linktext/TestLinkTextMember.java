@@ -14,7 +14,7 @@ public class TestLinkTextMember extends CommonAPI{
         signInPage.signInToKaiser(driver);
         HandlePopup handlePopUp = PageFactory.initElements(driver, HandlePopup.class);
         handlePopUp.closePopUpWindow(driver);
-        LinkTextMemberPage linkTextMemberPage =PageFactory.initElements(driver,LinkTextMemberPage.class);
+        linktext.LinkTextMemberPage linkTextMemberPage =PageFactory.initElements(driver, linktext.LinkTextMemberPage.class);
         linkTextMemberPage.clickMembersLinkByHref(driver);
     }
 }

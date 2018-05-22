@@ -1,11 +1,11 @@
 package restApiTest;
 
-import restapibase.RestAPIBase;
-import clients.RESTClient;
+import rest.clients.RESTClient;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import rest.restapibase.RestAPIBase;
 
 public class TestRestAPI extends RestAPIBase {
 

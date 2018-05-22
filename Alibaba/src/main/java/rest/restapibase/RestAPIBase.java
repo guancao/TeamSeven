@@ -1,4 +1,4 @@
-package restapibase;
+package rest.restapibase;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +13,7 @@ public class RestAPIBase {
     public RestAPIBase() {
         try {
             FileInputStream fis = null;
-            File file = new File(System.getProperty("user.dir")+"/src/restapi/java/configures/configure.properties");
+            File file = new File(System.getProperty("user.dir")+"/src/main/java/rest/configures/configure.properties");
             fis = new FileInputStream(file);
             prop = new Properties();
             prop.load(fis);
