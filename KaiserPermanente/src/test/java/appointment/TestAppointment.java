@@ -15,6 +15,6 @@ public class TestAppointment extends CommonAPI {
         HandlePopup handlePopUp = PageFactory.initElements(driver, HandlePopup.class);
         handlePopUp.closePopUpWindow(driver);
         ScheduleAppointment scheduleAppointment=PageFactory.initElements(driver,ScheduleAppointment.class);
-        scheduleAppointment.scheduleAppointment(driver);
+//        scheduleAppointment.scheduleAppointment(driver);
     }
 }

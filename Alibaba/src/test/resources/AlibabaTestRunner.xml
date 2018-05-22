@@ -27,12 +27,13 @@
 
     <test name="Alibaba Home">
         <classes>
-            <class name="alitests.TestSignUp"/>
-            <class name="alitests.TestSearch"/>
-            <class name="alitests.TestSearchExcelInput"/>
-            <class name="alitests.TestSearchFromGoogleSheet"/>
-            <class name="alitests.TestMySqlSearch"/>
-            <class name="alitests.TestSignIn"/>
+            <!--<class name="alitests.TestSignUp"/>-->
+            <!--<class name="alitests.TestSearch"/>-->
+            <!--<class name="alitests.TestSearchExcelInput"/>-->
+            <!--<class name="alitests.TestSearchFromGoogleSheet"/>-->
+            <!--<class name="alitests.TestMySqlSearch"/>-->
+            <!--<class name="alitests.TestSignIn"/>-->
+            <class name="restApiTest.TestRestAPI"/>
         </classes>
     </test>
 </suite>
