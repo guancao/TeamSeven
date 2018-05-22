@@ -1,6 +1,6 @@
 package restApiTest;
 
-import base.RestAPIBase;
+import restapibase.RestAPIBase;
 import clients.RESTClient;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -26,6 +26,5 @@ public class TestRestAPI extends RestAPIBase {
     public void testGet() throws IOException {
         RESTClient client = new RESTClient();
         client.getAPI(url);
-
     }
 }
