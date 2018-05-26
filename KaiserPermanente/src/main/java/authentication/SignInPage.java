@@ -35,11 +35,11 @@ public class SignInPage {
    }
    public void typeUserName()
    {
-       getUserNameInputField().sendKeys("fatimafayyaz79");
+       getUserNameInputField().sendKeys("testuser");
    }
    public void typePasseword()
    {
-       getPasswordInputField().sendKeys("Sfmmm1979");
+       getPasswordInputField().sendKeys("abcd1234");
    }
    public void clickOnAuthenticate()
    {
