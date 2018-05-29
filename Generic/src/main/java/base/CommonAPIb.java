@@ -78,10 +78,10 @@ public class CommonAPIb {
         ExtentTestManager.endTest();
         extent.flush();
         if (result.getStatus() == ITestResult.FAILURE) {
-            captureScreenshot("screenshootFilePath",result.getName());
-//            captureScreenshot("./screenshoot/", result.getName());
+//            captureScreenshot("screenshootFilePath",result.getName());
+            captureScreenshot(driver, result.getName());
         }
-        captureScreenshot("screenshootFilePath",result.getName());
+        captureScreenshot(driver,result.getName());
         driver.quit();
     }
 
@@ -118,7 +118,7 @@ public class CommonAPIb {
     }
 
     //change the webdriver path based on your local machine
-    @Parameters({"filePath"})
+//    @Parameters({"filePath"})
     public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName, @Optional("filePath") String filePath) throws IOException {
         if (browserName.equalsIgnoreCase("chrome")) {
             if (OS.equalsIgnoreCase("OS X")) {
@@ -433,26 +433,45 @@ public class CommonAPIb {
         driver.findElement(By.linkText(locator)).findElement(By.tagName("a")).getText();
     }
 
-    @Parameters({"screenshotFilePath"})
-    public static void captureScreenshot(@Optional("") String screenshootFilePath, String screenshotName) {
+//    @Parameters({"screenshotFilePath"})
+//    public static void captureScreenshot(@Optional("") String screenshootFilePath, String screenshotName) {
+//        DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
+//        Date date = new Date();
+//        df.format(date);
+//
+//        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        try {
+//            FileUtils.copyFile(file, new File(screenshootFilePath + screenshotName + " " + df.format(date) + ".png"));
+//            System.out.println("Screenshot captured");
+//        } catch (Exception e) {
+//            System.out.println("Exception while taking screenshot " + e.getMessage());
+//            ;
+//        }
+//    }
+//
+//    //Taking Screen shots
+//    public void takeScreenShot(String name) throws IOException {
+//        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        FileUtils.copyFile(file, new File(name + "screenShots.png"));
+//    }
+    public static void captureScreenshot(WebDriver driver, String screenshotName){
         DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
         Date date = new Date();
         df.format(date);
 
-        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file, new File(screenshootFilePath + screenshotName + " " + df.format(date) + ".png"));
+            FileUtils.copyFile(file, new File(System.getProperty("user.dir")+ "/screenshots/"+screenshotName+" "+df.format(date)+".png"));
             System.out.println("Screenshot captured");
         } catch (Exception e) {
-            System.out.println("Exception while taking screenshot " + e.getMessage());
-            ;
+            System.out.println("Exception while taking screenshot "+e.getMessage());;
         }
-    }
 
+    }
     //Taking Screen shots
-    public void takeScreenShot(String name) throws IOException {
-        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(file, new File(name + "screenShots.png"));
+    public void takeScreenShot()throws IOException {
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(file,new File("screenShots.png"));
     }
 
     //Synchronization
