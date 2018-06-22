@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="All Preps Automation Script" parallel="false">
+
+    <parameter name="useCloudEnv" value="false"/>
+
+    <test name="AllPrep Home">
+        <classes>
+            <class name="phptests.TestPhphome"/>
+        </classes>
+    </test>
+</suite>
