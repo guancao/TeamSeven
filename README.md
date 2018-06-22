@@ -1,3 +1,4 @@
 # TeamSeven
 
+have fun
 lol
