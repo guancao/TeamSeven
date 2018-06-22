@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,6 +23,7 @@ import reporting.ExtentTestManager;
 
 import java.io.*;
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -75,10 +78,10 @@ public class CommonAPIb {
         ExtentTestManager.endTest();
         extent.flush();
         if (result.getStatus() == ITestResult.FAILURE) {
-            captureScreenshot("screenshootFilePath",result.getName());
-//            captureScreenshot("./screenshoot/", result.getName());
+//            captureScreenshot("screenshootFilePath",result.getName());
+            captureScreenshot(driver, result.getName());
         }
-        captureScreenshot("screenshootFilePath",result.getName());
+        captureScreenshot(driver,result.getName());
         driver.quit();
     }
 
@@ -101,9 +104,9 @@ public class CommonAPIb {
         System.setProperty("webdriver.chrome.driver", readProperties("winChromeDriverPath", filePath));
         if (useCloudEnv == true) {
             if (cloudEnvName.equalsIgnoreCase("browserstack")) {
-                //getCloudDriver(cloudEnvName,browserstack_username,browserstack_accesskey,os,os_version, browserName, browserVersion);
+                getCloudDriver(cloudEnvName,browserstack_username,browserstack_accesskey,os,os_version, browserName, browserVersion);
             } else if (cloudEnvName.equalsIgnoreCase("saucelabs")) {
-                //getCloudDriver(cloudEnvName,saucelabs_username, saucelabs_accesskey,os,os_version, browserName, browserVersion);
+                getCloudDriver(cloudEnvName,saucelabs_username, saucelabs_accesskey,os,os_version, browserName, browserVersion);
             }
         } else {
             getLocalDriver(os, browserName, filePath);
@@ -115,7 +118,7 @@ public class CommonAPIb {
     }
 
     //change the webdriver path based on your local machine
-    @Parameters({"filePath"})
+//    @Parameters({"filePath"})
     public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName, @Optional("filePath") String filePath) throws IOException {
         if (browserName.equalsIgnoreCase("chrome")) {
             if (OS.equalsIgnoreCase("OS X")) {
@@ -135,6 +138,26 @@ public class CommonAPIb {
         } else if (browserName.equalsIgnoreCase("ie")) {
             System.setProperty("webdriver.ie.driver", readProperties("ieDriverPath", filePath));
             driver = new InternetExplorerDriver();
+        }
+        return driver;
+    }
+
+    public WebDriver getCloudDriver(String envName,String envUsername, String envAccessKey,String os, String os_version,String browserName,
+                                    String browserVersion)throws IOException {
+
+        DesiredCapabilities cap = new DesiredCapabilities();
+        cap.setCapability("browser",browserName);
+        cap.setCapability("browser_version",browserVersion);
+        cap.setCapability("os", os);
+        cap.setCapability("os_version", os_version);
+        if(envName.equalsIgnoreCase("Saucelabs")){
+            //resolution for Saucelabs
+            driver = new RemoteWebDriver(new URL("http://"+envUsername+":"+envAccessKey+
+                    "@ondemand.saucelabs.com:80/wd/hub"), cap);
+        }else if(envName.equalsIgnoreCase("Browserstack")) {
+            cap.setCapability("resolution", "1024x768");
+            driver = new RemoteWebDriver(new URL("http://" + envUsername + ":" + envAccessKey +
+                    "@hub-cloud.browserstack.com/wd/hub"), cap);
         }
         return driver;
     }
@@ -410,26 +433,45 @@ public class CommonAPIb {
         driver.findElement(By.linkText(locator)).findElement(By.tagName("a")).getText();
     }
 
-    @Parameters({"screenshotFilePath"})
-    public static void captureScreenshot(@Optional("") String screenshootFilePath, String screenshotName) {
+//    @Parameters({"screenshotFilePath"})
+//    public static void captureScreenshot(@Optional("") String screenshootFilePath, String screenshotName) {
+//        DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
+//        Date date = new Date();
+//        df.format(date);
+//
+//        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        try {
+//            FileUtils.copyFile(file, new File(screenshootFilePath + screenshotName + " " + df.format(date) + ".png"));
+//            System.out.println("Screenshot captured");
+//        } catch (Exception e) {
+//            System.out.println("Exception while taking screenshot " + e.getMessage());
+//            ;
+//        }
+//    }
+//
+//    //Taking Screen shots
+//    public void takeScreenShot(String name) throws IOException {
+//        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        FileUtils.copyFile(file, new File(name + "screenShots.png"));
+//    }
+    public static void captureScreenshot(WebDriver driver, String screenshotName){
         DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
         Date date = new Date();
         df.format(date);
 
-        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file, new File(screenshootFilePath + screenshotName + " " + df.format(date) + ".png"));
+            FileUtils.copyFile(file, new File(System.getProperty("user.dir")+ "/screenshots/"+screenshotName+" "+df.format(date)+".png"));
             System.out.println("Screenshot captured");
         } catch (Exception e) {
-            System.out.println("Exception while taking screenshot " + e.getMessage());
-            ;
+            System.out.println("Exception while taking screenshot "+e.getMessage());;
         }
-    }
 
+    }
     //Taking Screen shots
-    public void takeScreenShot(String name) throws IOException {
-        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(file, new File(name + "screenShots.png"));
+    public void takeScreenShot()throws IOException {
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(file,new File("screenShots.png"));
     }
 
     //Synchronization

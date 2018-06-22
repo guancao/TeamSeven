@@ -9,6 +9,7 @@
     <!--<parameter name="os_version" value="Sierra"/>-->
     <!--<parameter name="browserName" value="firefox"/>-->
     <!--<parameter name="browserVersion" value="53.0"/>-->
+
     <parameter name="os" value="Windows"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="filePath" value=".\src\test\resources\locator.properties"/>
@@ -16,7 +17,7 @@
     <parameter name="secretPath" value=".\databaseinfo\secret.properties"/>
     <parameter name="excelPath" value="\src\test\resources\excel.properties"/>
     <parameter name="mysqlPath" value=".\src\test\resources\mysql.properties"/>
-    <parameter name="screenshotFilePath" value=".\screenshoot"/>
+    <parameter name="screenshotFilePath" value=".\screenshoot\"/>
     <parameter name="xlsxFilePath" value=".\data\ali.xlsx"/>
     <parameter name="secretMySqlPath" value=".\databaseinfo\secret.properties"/>
     <parameter name="user" value="garyclearmind@gmail.com"/>

@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,6 +23,7 @@ import reporting.ExtentTestManager;
 
 import java.io.*;
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -29,8 +32,8 @@ import java.util.concurrent.TimeUnit;
 public class CommonAPI {
     public WebDriver driver = null;
 
-    public String browserstack_username = "your user name";
-    public String browserstack_accesskey = "your access key";
+    public String browserstack_username= "muhammadusman25";
+    public String browserstack_accesskey = "2Y6vk2WwEqsWsP1wppMJ";
     public String saucelabs_username = "";
     public String saucelabs_accesskey = "";
 
@@ -92,7 +95,7 @@ public class CommonAPI {
         return calendar.getTime();
     }
 
-    @Parameters({"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url", "filepath"})
+    @Parameters({"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url", "filePath"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false") String cloudEnvName,
                       @Optional("OS X") String os, @Optional("10") String os_version, @Optional("firefox") String browserName, @Optional("34")
@@ -100,9 +103,9 @@ public class CommonAPI {
         System.setProperty("webdriver.chrome.driver", readProperties("winchromedriverpath", filepath));
         if (useCloudEnv == true) {
             if (cloudEnvName.equalsIgnoreCase("browserstack")) {
-                //getCloudDriver(cloudEnvName,browserstack_username,browserstack_accesskey,os,os_version, browserName, browserVersion);
+                getCloudDriver(cloudEnvName,browserstack_username,browserstack_accesskey,os,os_version, browserName, browserVersion);
             } else if (cloudEnvName.equalsIgnoreCase("saucelabs")) {
-                //getCloudDriver(cloudEnvName,saucelabs_username, saucelabs_accesskey,os,os_version, browserName, browserVersion);
+                getCloudDriver(cloudEnvName,saucelabs_username, saucelabs_accesskey,os,os_version, browserName, browserVersion);
             }
         } else {
             getLocalDriver(os, browserName, filepath);
@@ -114,26 +117,45 @@ public class CommonAPI {
     }
 
     //change the webdriver path based on your local machine
-    @Parameters({"filepath"})
-    public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName, String filepath) throws IOException {
+    @Parameters({"filePath"})
+    public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName, String filePath) throws IOException {
         if (browserName.equalsIgnoreCase("chrome")) {
             if (OS.equalsIgnoreCase("OS X")) {
-                System.setProperty("webdriver.chrome.driver", readProperties("oxchromedriverpath", filepath));
+                System.setProperty("webdriver.chrome.driver", readProperties("oxchromedriverpath", filePath));
             } else if (OS.equalsIgnoreCase("Windows")) {
-                System.setProperty("webdriver.chrome.driver", readProperties("winchromedriverpath", filepath));
+                System.setProperty("webdriver.chrome.driver", readProperties("winchromedriverpath", filePath));
             }
             driver = new ChromeDriver();
         } else if (browserName.equalsIgnoreCase("firefox")) {
             if (OS.equalsIgnoreCase("OS X")) {
-                System.setProperty("webdriver.gecko.driver", readProperties("oxfirefoxdriverpath", filepath));
+                System.setProperty("webdriver.gecko.driver", readProperties("oxfirefoxdriverpath", filePath));
             } else if (OS.equalsIgnoreCase("Windows")) {
-                System.setProperty("webdriver.gecko.driver", readProperties("winchromedriverpath", filepath));
+                System.setProperty("webdriver.gecko.driver", readProperties("winchromedriverpath", filePath));
             }
             driver = new FirefoxDriver();
 
         } else if (browserName.equalsIgnoreCase("ie")) {
-            System.setProperty("webdriver.ie.driver", readProperties("iedriverpath", filepath));
+            System.setProperty("webdriver.ie.driver", readProperties("iedriverpath", filePath));
             driver = new InternetExplorerDriver();
+        }
+        return driver;
+    }
+    public WebDriver getCloudDriver(String envName,String envUsername, String envAccessKey,String os, String os_version,String browserName,
+                                    String browserVersion)throws IOException {
+
+        DesiredCapabilities cap = new DesiredCapabilities();
+        cap.setCapability("browser",browserName);
+        cap.setCapability("browser_version",browserVersion);
+        cap.setCapability("os", os);
+        cap.setCapability("os_version", os_version);
+        if(envName.equalsIgnoreCase("Saucelabs")){
+            //resolution for Saucelabs
+            driver = new RemoteWebDriver(new URL("http://"+envUsername+":"+envAccessKey+
+                    "@ondemand.saucelabs.com:80/wd/hub"), cap);
+        }else if(envName.equalsIgnoreCase("Browserstack")) {
+            cap.setCapability("resolution", "1024x768");
+            driver = new RemoteWebDriver(new URL("http://" + envUsername + ":" + envAccessKey +
+                    "@hub-cloud.browserstack.com/wd/hub"), cap);
         }
         return driver;
     }
@@ -407,7 +429,8 @@ public class CommonAPI {
 
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file, new File(System.getProperty("user.dir") + "/screenshots/" + screenshotName + " " + df.format(date) + ".png"));
+//            FileUtils.copyFile(file, new File(System.getProperty("user.dir") + "/screenshots/" + screenshotName + " " + df.format(date) + ".png"));
+            FileUtils.copyFile(file, new File("./screenshots/" + screenshotName + " " + df.format(date) + ".png"));
             System.out.println("Screenshot captured");
         } catch (Exception e) {
             System.out.println("Exception while taking screenshot " + e.getMessage());
@@ -478,25 +501,25 @@ public class CommonAPI {
 
     }
     //Guan add 4/25/2018
-    @Parameters({"filepath"})
-    public static WebElement findElemByXpath(WebDriver driver, String key, String filepath) throws IOException {
-        WebElement element = driver.findElement(By.xpath(readProperties(key, filepath)));
+    @Parameters({"filePath"})
+    public static WebElement findElemByXpath(WebDriver driver, String key, String filePath) throws IOException {
+        WebElement element = driver.findElement(By.xpath(readProperties(key, filePath)));
         return element;
     }
 
-    @Parameters({"filepath"})
-    public static List<WebElement> findElemsByXpath(WebDriver driver, String key, String filepath) throws
+    @Parameters({"filePath"})
+    public static List<WebElement> findElemsByXpath(WebDriver driver, String key, String filePath) throws
             IOException {
-        List<WebElement> elementList = driver.findElements(By.xpath(readProperties(key, filepath)));
+        List<WebElement> elementList = driver.findElements(By.xpath(readProperties(key, filePath)));
         return elementList;
     }
 
-    @Parameters({"filepath"})
-    public static List<String> findElemsStringListByXpath(WebDriver driver, String key, String filepath) throws
+    @Parameters({"filePath"})
+    public static List<String> findElemsStringListByXpath(WebDriver driver, String key, String filePath) throws
             IOException {
         System.out.println("key is ::" + key);
-        System.out.println("xpath is===:" + readProperties(key, filepath));
-        List<WebElement> elementList = driver.findElements(By.xpath("readProperties(key, filepath)"));
+        System.out.println("xpath is===:" + readProperties(key, filePath));
+        List<WebElement> elementList = driver.findElements(By.xpath("readProperties(key, filePath)"));
         List<String> stringList = new ArrayList<String>();
         for (WebElement ele : elementList) {
             stringList.add(ele.getText());
@@ -504,9 +527,8 @@ public class CommonAPI {
         return stringList;
     }
 
-    @Parameters({"filepath"})
-    public static String readProperties(String key, String filepath) throws IOException {
-        String filePath = filepath;
+    @Parameters({"filePath"})
+    public static String readProperties(String key, String filePath) throws IOException {
         File f = new File(filePath);
         FileInputStream fis = new FileInputStream(f);
         Properties prop = new Properties();

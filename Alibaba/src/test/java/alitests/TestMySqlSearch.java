@@ -39,7 +39,8 @@ public class TestMySqlSearch extends CommonAPIb {
             System.out.println("Item from the MySql to be searched : " + "\t"+ st);
             hs.clearInputField();
             hs.searchItem(st);
-            captureScreenshot("./screenshot/",CommonAPIb.convertToString(new Object() {
+//            captureScreenshot("./screenshot/",CommonAPIb.convertToString(new Object() {
+            captureScreenshot(driver,CommonAPIb.convertToString(new Object() {
             }.getClass().getEnclosingMethod().getName()));
 //            Thread.sleep(3000);
             WebDriverWait wait = new WebDriverWait(driver, 30);
